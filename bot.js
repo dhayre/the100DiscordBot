@@ -1,5 +1,5 @@
 const { Client, Intents } = require('discord.js');
-const bot = new Client({ intents: 32767, autoReconnect: true });
+const bot = new Client({ intents: [Intents.FLAGS.GUILDS] });
 const request = require('request');
 const authDetails = require('./auth.json');
 const commands = require('./bot/commands.js');
