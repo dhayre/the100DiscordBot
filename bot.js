@@ -1,24 +1,25 @@
+const { Client, Intents } = require('discord.js');
 const Discord = require('discord.js');
+//const intents = Discord.Intents('messages=true, guilds=true');
+const bot = new Client({ intents: 32767, autoReconnect: true });
 const request = require('request');
 const authDetails = require('./auth.json');
-const bot = new Discord.Client({ autoReconnect: true });
 const commands = require('./bot/commands.js');
 const inviteAgeDays = 7;
 const inviteMaxUses = 1;
 const inviteUnique = true;
 
-
 bot.on('ready', () =>
 {
-    const botTestChannel = bot.channels.find('name', 'bottestchannel');
-    const welcomeChannel = bot.channels.find('name', 'welcome_new_members');
-    const rulesChannel = bot.channels.find('name', 'rules_and_info');
-
-    botTestChannel.send('Boo Boo Bee Doo... Omnic is ready to serve its CC337 Overlords!');
+    const welcomeChannel = bot.channels.cache.get('welcome_new_members');
+    const rulesChannel = bot.channels.cache.get('523332842940268554');
+    const botTestChannel = bot.channels.cache.get('206052775061094401');
+	
+    botTestChannel.send('Boo Boo Bee Doo... Omnic v2.0 is ready to serve its CC337 Overlords!');
 
     console.log('Bot Online');
-
-    bot.user.setGame('$help');
+    bot.user.setActivity('Achieving Sentience - $help');
+    //bot.user.setGame('$help');
 
     // Tries to perform this function on the live server
     try
@@ -26,21 +27,22 @@ bot.on('ready', () =>
         // Get a list of members with Newbie role
         
         // CC337 Server
-        bot.guilds.get('193349994617634816').roles.find('name', 'Newbie').members.forEach((member) =>
+        bot.guild.roles.get('193349994617634816').members.forEach((member) =>
+	//bot.guilds.get('193349994617634816').roles.find('name', 'Newbie').members.forEach((member) =>
         {
 
             // Get today's date
             const todaysDate = new Date();
 
             // Find member's join date
-            const joinDate = member.joinedAt;
+            const joinDate = guildMember.joinedAt;
 
             // Add three days to member's join date
             const threeDaysAfterJoinDate = joinDate.setDate(joinDate.getDate() + 3);
 
             // If member has been here more than three days and is not a Grunt yet, kick 'em out
             // and send them a message why
-            if (threeDaysAfterJoinDate < todaysDate && member.roles.exists('name', 'Grunt') === false)
+            if (threeDaysAfterJoinDate < todaysDate && bot.role.name != 'Grunt')
             {
                 // Generate a unique, single use, 7 day invite for the member and send them a DM
                 welcomeChannel.createInvite({maxAge: 604800, maxUses: 1, unique: true})
@@ -119,10 +121,10 @@ That's it! If you have any questions, please let a member of the leadership team
     // Add Newbie role to new member upon joining
     guildMember.addRole(guildMember.guild.roles.find('name', 'Newbie'));
 
-    const leadershipChannel = guildMember.guild.channels.find('name', 'company_leadership');
-    const welcomeChannel = bot.channels.find('name', 'welcome_new_members');
-    const memberLogChannel = guildMember.guild.channels.find('name', 'member_log');
-
+    const leadershipChannel = bot.channels.cache.get('company_leadership');
+    const welcomeChannel = bot.channels.cache.get('welcome_new_members');
+    //const memberLogChannel = guildMember.guild.channels.find('name', 'member_log');
+    const memberLogChannel = bot.channels.cache.get('ADD_ID_HERE');
     // Post a message in welcome_new_members/company_leadership/member_log notifying users of new member.
     welcomeChannel.send(`Hey everyone! We have a new member. Please welcome ${guildMember.user} to our group! ${guildMember.user}, please read the post at the top of this channel for more information on how to get promoted to Grunt and be given access to the rest of the Discord. Happy gaming!`);
 
@@ -135,7 +137,7 @@ That's it! If you have any questions, please let a member of the leadership team
 // member log channel to notify mods and keep track of who has left.
 bot.on('guildMemberRemove', (guildMember) =>
 {
-    const memberLogChannel = guildMember.guild.channels.find('name', 'member_log');
+    const memberLogChannel = bot.channels.cache.get('ADD_ID_HERE');
 
     // Check audit logs to see if member was kicked
     guildMember.guild.fetchAuditLogs('limit',1)
@@ -160,10 +162,10 @@ bot.on('guildMemberRemove', (guildMember) =>
 // When any member changes their nickname, add it to the mod log
 bot.on('guildMemberUpdate', (oldMember,newMember) =>
 {
-    const generalChannel = newMember.guild.channels.find('name', 'general');
-    const leadershipChannel = newMember.guild.channels.find('name', 'company_leadership');
-    const memberLogChannel = newMember.guild.channels.find('name', 'member_log');
-    const welcomeChannel = bot.channels.find('name', 'welcome_new_members');
+    const generalChannel = bot.channels.cache.get('general');
+    const leadershipChannel = bot.channels.cache.get('CHANNEL_ID');
+    //const memberLogChannel = newMember.guild.channels.fetch('name', 'member_log');
+    const welcomeChannel = bot.channels.cache.get('welcome_new_members');
 
     // If roles have been updated
     if(oldMember.roles.equals(newMember.roles) === false) {
@@ -209,7 +211,7 @@ bot.on('guildMemberUpdate', (oldMember,newMember) =>
 // to keep a log and notify bot admins.
 bot.on('disconnect', (msg) =>
 {
-    const botTestChannel = bot.channels.find('name', 'bottestchannel');
+    const botTestChannel = bot.channels.fetch('name', 'bottestchannel');
 
     botTestChannel.send('Bee Bee Boop ... Bot Disconnected');
 });
