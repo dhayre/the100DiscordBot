@@ -147,7 +147,7 @@ That's it! If you have any questions, please let a member of the leadership team
 // member log channel to notify mods and keep track of who has left.
 bot.on('guildMemberRemove', (guildMember) =>
 {
-    const memberLogChannel = bot.channels.cache.get(memberlogID);
+    const memberLogChannel = bot.channels.cache.get(memberlogChannelID);
 
     // Check audit logs to see if member was kicked
     guildMember.guild.fetchAuditLogs('limit',1)
