@@ -1,6 +1,4 @@
 const { Client, Intents } = require('discord.js');
-const Discord = require('discord.js');
-//const intents = Discord.Intents('messages=true, guilds=true');
 const bot = new Client({ intents: 32767, autoReconnect: true });
 const request = require('request');
 const authDetails = require('./auth.json');
