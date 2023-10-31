@@ -180,7 +180,7 @@ bot.on('guildMemberUpdate', (oldMember,newMember) =>
     const welcomeChannel = bot.channels.cache.get(welcomeChannelID);
 
     // If roles have been updated
-    if(oldMember.roles.equals(newMember.roles) === false) {
+    if(oldMember.role.equals(newMember.roles) === false) {
 
         // If the new role added is grunt, send message to general channel
         if(oldMember.roles.exists(gruntID) === false && newMember.roles.exists(gruntID)) {
@@ -205,8 +205,8 @@ bot.on('guildMemberUpdate', (oldMember,newMember) =>
             memberLogChannel.send(`${oldMember.displayName} has added the nickname ${newMember.user}`);
         }
         
-        if(newMember.roles.exists(newbID)
-        {
+        if(newMember.roles.exists(newbID) {
+        
             if (oldMember.nickname) {
                 welcomeChannel.send(`Newbie ${oldMember.nickname} has changed their nickname to ${newMember.user}`);
             }
