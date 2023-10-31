@@ -1,5 +1,5 @@
 const { Client, GatewayIntentBits } = require('discord.js');
-const client = new Client({
+const bot = new Client({
 	intents: [
 		GatewayIntentBits.Guilds,
 		GatewayIntentBits.GuildMessages,
@@ -7,8 +7,6 @@ const client = new Client({
 		GatewayIntentBits.GuildMembers,
 	],
 });
-
-
 
 const request = require('request');
 const authDetails = require('./auth.json');
@@ -137,9 +135,9 @@ That's it! If you have any questions, please let a member of the leadership team
 
     // Add Newbie role to new member upon joining
     //guildMember.addRole(guildMember.guild.roles.find('name', 'Newbie'));
-    const role = interaction.options.getRole(newbID);
+    //const role = bot.user.getRole(newbID);
     const member = interaction.options.getMember(bot.users.get(guildMember.user.id));
-    member.roles.add(role);
+    member.roles.add(newbID);
 
     const leadershipChannel = bot.channels.cache.get(leadershipChannelID);
     const welcomeChannel = bot.channels.cache.get(welcomeChannelID);
