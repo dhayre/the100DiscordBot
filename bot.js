@@ -25,7 +25,7 @@ bot.on('ready', () =>
     botTestChannel.send('Boo Boo Bee Doo... Omnic v2.0 is ready to serve its CC337 Overlords!');
 
     console.log('Bot Online');
-    bot.user.setActivity('Achieving Sentience - $help');
+    bot.user.setActivity('Achieving Sentience...');
     //bot.user.setGame('$help');
 
     // Tries to perform this function on the live server
@@ -96,7 +96,7 @@ bot.on('message', (msg) =>
 bot.on('guildMemberAdd', (guildMember) =>
 {
     // Send a DM to the new user explaining our rules.
-    bot.users.get(guildMember.user.id).send('',
+    bot.users.send(guildMember.user.id,
     {
         embed:
         {
