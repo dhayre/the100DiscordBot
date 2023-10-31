@@ -1,5 +1,15 @@
-const { Client, Intents } = require('discord.js');
-const bot = new Client({ intents: [Intents.FLAGS.GUILDS] });
+const { Client, GatewayIntentBits } = require('discord.js');
+const client = new Client({
+	intents: [
+		GatewayIntentBits.Guilds,
+		GatewayIntentBits.GuildMessages,
+		GatewayIntentBits.MessageContent,
+		GatewayIntentBits.GuildMembers,
+	],
+});
+
+
+
 const request = require('request');
 const authDetails = require('./auth.json');
 const commands = require('./bot/commands.js');
