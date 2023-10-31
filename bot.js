@@ -103,6 +103,7 @@ bot.on('message', (msg) =>
 
 bot.on('guildMemberAdd', (guildMember) =>
 {
+    const member = guildMember.options.getMember(bot.user.id);
     // Send a DM to the new user explaining our rules.
     bot.users.send(guildMember.user.id,
     {
@@ -136,7 +137,7 @@ That's it! If you have any questions, please let a member of the leadership team
     // Add Newbie role to new member upon joining
     //guildMember.addRole(guildMember.guild.roles.find('name', 'Newbie'));
     //const role = bot.user.getRole(newbID);
-    const member = guildMember.options.getMember(bot.user.id);
+    //const member = guildMember.options.getMember(bot.user.id);
     member.roles.add(newbID);
 
     const leadershipChannel = bot.channels.cache.get(leadershipChannelID);
