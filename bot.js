@@ -8,12 +8,21 @@ const commands = require('./bot/commands.js');
 const inviteAgeDays = 7;
 const inviteMaxUses = 1;
 const inviteUnique = true;
+const newbID = '226507869401513984';
+const gruntID = '267109091053142018';
+const troopID = '193350542888534018';
+const memberlogChannelID = '356288767700500492';
+const leadershipChannelID = '970859038336221184';
+const welcomeChannelID = '374762945848016906';
+const bottestChannelID = '206052775061094401';
+const rulesChannelID = '523332842940268554';
+const generalChannelID = '193349994617634816'
 
 bot.on('ready', () =>
 {
-    const welcomeChannel = bot.channels.cache.get('welcome_new_members');
-    const rulesChannel = bot.channels.cache.get('523332842940268554');
-    const botTestChannel = bot.channels.cache.get('206052775061094401');
+    const welcomeChannel = bot.channels.cache.get(welcomeChannelID);
+    const rulesChannel = bot.channels.cache.get(rulesChannelID);
+    const botTestChannel = bot.channels.cache.get(bottestChannelID);
 	
     botTestChannel.send('Boo Boo Bee Doo... Omnic v2.0 is ready to serve its CC337 Overlords!');
 
@@ -27,8 +36,8 @@ bot.on('ready', () =>
         // Get a list of members with Newbie role
         
         // CC337 Server
-        bot.guild.roles.get('193349994617634816').members.forEach((member) =>
-	//bot.guilds.get('193349994617634816').roles.find('name', 'Newbie').members.forEach((member) =>
+        bot.guild.roles.get(newbID).members.forEach((member) =>
+	    //bot.guilds.get('193349994617634816').roles.find('name', 'Newbie').members.forEach((member) =>
         {
 
             // Get today's date
@@ -110,21 +119,24 @@ __**There are a few things you need to do to gain full access to the Discord:**_
 
      See here for more info: https://support.discordapp.com/hc/en-us/articles/219070107-Server-Nicknames
 
-     **3**) Familiarize yourself with our ${bot.channels.find('name', 'rules_and_info')}.
+     **3**) Familiarize yourself with our ${bot.channels.cache.get(rulesChannelID)}.
 
-     **4**) Once you've done everything above, post in ${bot.channels.find('name', 'welcome_new_members')} to get promoted to Grunt and have full acess to our Discord.
+     **4**) Once you've done everything above, post in ${bot.channels.cache.get(welcomeChannelID)} to get promoted to Grunt and have full acess to our Discord.
 
-That's it! If you have any questions, please let a member of the leadership team know or post in ${bot.channels.find('name', 'welcome_new_members')} for help.`
+That's it! If you have any questions, please let a member of the leadership team know or post in ${bot.channels.cache.get(welcomeChannelID)} for help.`
         }
     });
 
     // Add Newbie role to new member upon joining
-    guildMember.addRole(guildMember.guild.roles.find('name', 'Newbie'));
+    //guildMember.addRole(guildMember.guild.roles.find('name', 'Newbie'));
+    const role = interaction.options.getRole(newbID);
+    const member = interaction.options.getMember(bot.users.get(guildMember.user.id));
+    member.roles.add(role);
 
-    const leadershipChannel = bot.channels.cache.get('company_leadership');
-    const welcomeChannel = bot.channels.cache.get('welcome_new_members');
+    const leadershipChannel = bot.channels.cache.get(leadershipChannelID);
+    const welcomeChannel = bot.channels.cache.get(welcomeChannelID);
     //const memberLogChannel = guildMember.guild.channels.find('name', 'member_log');
-    const memberLogChannel = bot.channels.cache.get('ADD_ID_HERE');
+    const memberLogChannel = bot.channels.cache.get(memberlogChannelID);
     // Post a message in welcome_new_members/company_leadership/member_log notifying users of new member.
     welcomeChannel.send(`Hey everyone! We have a new member. Please welcome ${guildMember.user} to our group! ${guildMember.user}, please read the post at the top of this channel for more information on how to get promoted to Grunt and be given access to the rest of the Discord. Happy gaming!`);
 
@@ -137,7 +149,7 @@ That's it! If you have any questions, please let a member of the leadership team
 // member log channel to notify mods and keep track of who has left.
 bot.on('guildMemberRemove', (guildMember) =>
 {
-    const memberLogChannel = bot.channels.cache.get('ADD_ID_HERE');
+    const memberLogChannel = bot.channels.cache.get(memberlogID);
 
     // Check audit logs to see if member was kicked
     guildMember.guild.fetchAuditLogs('limit',1)
@@ -162,22 +174,22 @@ bot.on('guildMemberRemove', (guildMember) =>
 // When any member changes their nickname, add it to the mod log
 bot.on('guildMemberUpdate', (oldMember,newMember) =>
 {
-    const generalChannel = bot.channels.cache.get('general');
-    const leadershipChannel = bot.channels.cache.get('CHANNEL_ID');
-    //const memberLogChannel = newMember.guild.channels.fetch('name', 'member_log');
-    const welcomeChannel = bot.channels.cache.get('welcome_new_members');
+    const generalChannel = bot.channels.cache.get(generalChannelID);
+    const leadershipChannel = bot.channels.cache.get(leadershipChannelID);
+    const memberLogChannel = newMember.guild.channels.fetch(memberlogChannelID);
+    const welcomeChannel = bot.channels.cache.get(welcomeChannelID);
 
     // If roles have been updated
     if(oldMember.roles.equals(newMember.roles) === false) {
 
         // If the new role added is grunt, send message to general channel
-        if(oldMember.roles.exists('name','Grunt') === false && newMember.roles.exists('name','Grunt')) {
-            generalChannel.send(`Please welcome our newest grunt ${newMember.user}! Take a moment to introduce yourself in ${newMember.guild.channels.find('name', 'introductions')} and pick up some roles in ${newMember.guild.channels.find('name', 'role_requests')}. We're glad you joined us!`);
+        if(oldMember.roles.exists(gruntID) === false && newMember.roles.exists(gruntID)) {
+            generalChannel.send(`Please welcome our newest grunt ${newMember.user}! Take a moment to introduce yourself in ${bot.channels.cache.get('227914910158290945')} and pick up some roles in ${newMember.guild.channels.find('name', 'role_requests')}. We're glad you joined us!`);
         }
 
         // If the new role added is trooper, send a message to general channel
-        else if (oldMember.roles.exists('name','Trooper') === false && newMember.roles.exists('name','Trooper')) {
-            generalChannel.send(`Congrats to ${newMember.user} on making Trooper status! Thanks for playing with us! ${newMember.guild.emojis.find('name','dorito')}`);
+        else if (oldMember.roles.exists(troopID) === false && newMember.roles.exists(troopID)) {
+            generalChannel.send(`Congrats to ${newMember.user} on making Trooper status! Thanks for playing with us! ${newMember.guild.emojis.find('409058931571163137')}`); // Dorito emoji 409058931571163137
         }
     }
 
@@ -193,7 +205,7 @@ bot.on('guildMemberUpdate', (oldMember,newMember) =>
             memberLogChannel.send(`${oldMember.displayName} has added the nickname ${newMember.user}`);
         }
         
-        if(newMember.roles.exists('name','Newbie'))
+        if(newMember.roles.exists(newbID)
         {
             if (oldMember.nickname) {
                 welcomeChannel.send(`Newbie ${oldMember.nickname} has changed their nickname to ${newMember.user}`);
@@ -211,7 +223,7 @@ bot.on('guildMemberUpdate', (oldMember,newMember) =>
 // to keep a log and notify bot admins.
 bot.on('disconnect', (msg) =>
 {
-    const botTestChannel = bot.channels.fetch('name', 'bottestchannel');
+    const botTestChannel = bot.channels.fetch(bottestChannelID);
 
     botTestChannel.send('Bee Bee Boop ... Bot Disconnected');
 });
