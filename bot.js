@@ -136,7 +136,7 @@ That's it! If you have any questions, please let a member of the leadership team
     // Add Newbie role to new member upon joining
     //guildMember.addRole(guildMember.guild.roles.find('name', 'Newbie'));
     //const role = bot.user.getRole(newbID);
-    const member = bot.options.getMember(guildMember.user.id);
+    const member = interaction.options.getMember(bot.user.id);
     member.roles.add(newbID);
 
     const leadershipChannel = bot.channels.cache.get(leadershipChannelID);
