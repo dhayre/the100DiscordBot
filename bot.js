@@ -45,7 +45,7 @@ bot.on('ready', () =>
         // Get a list of members with Newbie role
         
         // CC337 Server
-        bot.guild.roles.get(newbID).members.map(m=>m.user.tag).forEach((member) =>
+        bot.guilds.cache.get(newbID).forEach((member) =>
         {
             // Get today's date
             const todaysDate = new Date();
