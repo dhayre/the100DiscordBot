@@ -47,12 +47,12 @@ bot.on('ready', (rdy) =>
         let list = bot.guilds.cache.get('193349994617634816');
         let role1 = list.roles.cache.get('226507869401513984').members.map(m => m.user.id);
         console.log(role1);
-        role1.forEach(member => {
+        role1.forEach((member) => {
 
             // Get today's date
             const todaysDate = new Date(Date.now()).toLocaleString().split(',')[0];
             // Find member's join date
-            const joinDate = rdy.member.joinedAt;
+            const joinDate = member.joinedAt;
             console.log('Member:' + member)
             console.log('Today: ' + todaysDate);
             console.log('Joined: ' + joinDate);
