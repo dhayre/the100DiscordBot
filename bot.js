@@ -247,7 +247,6 @@ bot.on('guildMemberUpdate', (oldMember,newMember) =>
     if (oldMember.roles.cache.has(gruntID) && newMember.roles.cache.has(troopID)) {
             generalChannel.send(`Congrats to ${newMember.user} on making Trooper status! Thanks for playing with us! ${newMember.guild.emojis.find('409058931571163137')}`); // Dorito emoji 409058931571163137
         }
-    }
 
     // If a newbie has changed their nickname
     if(newMember.nickname && oldMember.nickname !== newMember.nickname) {
