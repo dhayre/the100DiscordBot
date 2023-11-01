@@ -40,7 +40,7 @@ bot.on('ready', (msg) =>
     //const userlist = guild.members.fetch();
     //let newmembers = userlist.guild.roles.cache.get('').members.map(m=>m.user.tag);
 
-    let list = bot.guilds.cache.get('374762945848016906');
+    let list = bot.guilds.cache.get('193349994617634816');
     let role1 = list.roles.cache.get('226507869401513984').members.map(m => m.user.id);
     console.log(role1);
     //bot.user.setAvatar('http://i.imgur.com/KslihqE.png');
