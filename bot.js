@@ -43,8 +43,9 @@ bot.on('ready', () =>
     try
     {
         // Get a list of members with Newbie role
-        
-        guild.members.fetch(newbID).forEach(member =>
+        const members = await guild.members.fetch();
+        members.forEach(member => {
+        //bot.guild.members.fetch(newbID).forEach(member =>
         //bot.guild.members.fetch({cache : false}).then(members=>{
         //members.filter(x=>x.roles.cache.has("id")) 
         {
@@ -88,6 +89,7 @@ Once you've completed this, post in the #welcome_new_members channel to be promo
                     member.kick('Did not complete basic membership requirements after three days');
                 });
         }
+    }
     })
         console.log('Live Server');
     }
