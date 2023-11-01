@@ -48,15 +48,13 @@ bot.on('ready', (rdy) =>
         let role1 = list.roles.cache.get('226507869401513984').members.map(m => m.user.id);
         console.log(role1);
         role1.forEach((member) => {
+            let mbmr = message.guild.members.get(args[0]);
 
             // Get today's date
             const todaysDate = new Date(Date.now()).toLocaleString().split(',')[0];
             // Find member's join date
-            let person = member.user;
-            console.log(person);
-
-            const joinDate = person.joinedAt;
-            console.log('Member:' + person.joinedAt)
+            const joinDate = mbmr.joinedAt;
+            console.log('Member:' + mbmr)
             console.log('Today: ' + todaysDate);
             console.log('Joined: ' + joinDate);
             // Add three days to member's join date
