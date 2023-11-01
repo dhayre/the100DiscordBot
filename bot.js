@@ -51,8 +51,6 @@ bot.on('ready', (msg) =>
         let role1 = list.roles.cache.get('226507869401513984').members.map(m => m.user.id);
         console.log(role1);
         role1.forEach(member => {
-            if (member.roles.cache.has(newbID))
-            {
             console.log('This guy is still a newb: ' + role1);
 
             // Get today's date
@@ -96,7 +94,6 @@ Once you've completed this, post in the #welcome_new_members channel to be promo
                 });
         } */
     }
-        })
     //}) 
         console.log('Live Server');
     }
