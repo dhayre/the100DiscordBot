@@ -54,7 +54,6 @@ bot.on('ready', (rdy) =>
             // Find member's join date
             const joinDate = mbmr.joinedAt;
             console.log('Member:' + mbmr);
-            console.log('Member:' + (todaysDate - 3));
             console.log('Today: ' + (todaysDate - joinDate < 259200000));
             console.log('Joined: ' + (joinDate - todaysDate));
             // Add three days to member's join date
@@ -85,7 +84,7 @@ bot.on('ready', (rdy) =>
 	            .setFooter({ text: `If you have any questions, please let a member of the leadership team know or post in ${ bot.channels.cache.get(welcomeChannelID) } for help`, iconURL: 'http://i.imgur.com/KslihqE.png' });
      
 
-            if (joinDate < todaysDate - 3 && !member.roles.cache.has(gruntID))
+            if (joinDate < todaysDate - 3 && !member.roles.caxche.has(gruntID))
             {
                 console.log('Would kick ' + member.name)
                 // Generate a unique, single use, 7 day invite for the member and send them a DM
