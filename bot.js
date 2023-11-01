@@ -1,4 +1,4 @@
-const { Client, GatewayIntentBits, EmbedBuilder } = require('discord.js');
+const { Client, GatewayIntentBits, EmbedBuilder, GuildMemberManager } = require('discord.js');
 const bot = new Client({
 	intents: [
 		GatewayIntentBits.Guilds,
@@ -48,7 +48,7 @@ bot.on('ready', () =>
         //bot.guild.members.list()
         //    .then(console.log)
          //   .catch(console.error);
-        const newmembers = bot.guild.members.cache.get;
+        const newmembers = guild.members.cache.get;
         console.log('Newb ID:' + newbID);
         console.log('Members:' + newmembers);
         guest.members2.list.forEach(member => {
