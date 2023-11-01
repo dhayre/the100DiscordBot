@@ -55,7 +55,7 @@ bot.on('ready', (rdy) =>
             const joinDate = mbmr.joinedAt;
             console.log('Member:' + mbmr);
             console.log('Member:' + (todaysDate - 3));
-            console.log('Today: ' + (todaysDate - joinDate < 8640000));
+            console.log('Today: ' + (todaysDate - joinDate < 259,200,000));
             console.log('Joined: ' + (joinDate - todaysDate));
             // Add three days to member's join date
             //const threeDaysAfterJoinDate = joinDatejoinDate.getDate() + 3);
