@@ -54,7 +54,7 @@ bot.on('ready', (rdy) =>
             // Find member's join date
             const joinDate = mbmr.joinedAt;
             console.log('Member:' + mbmr);
-            console.log('Today: ' + (todaysDate - joinDate < 259200000));
+            console.log('Today: ' + (todaysDate - 259200000 > joinDate));
             console.log('Joined: ' + (joinDate - todaysDate));
             // Add three days to member's join date
             //const threeDaysAfterJoinDate = joinDatejoinDate.getDate() + 3);
@@ -86,7 +86,7 @@ bot.on('ready', (rdy) =>
 
             if (todaysDate - 259200000 > joinDate  && mbmr.roles.cache.has(newbID))
             {
-                console.log('Would kick ' + mbmr.name)
+                console.log('Would kick ' + mbmr.username)
                 // Generate a unique, single use, 7 day invite for the member and send them a DM
                 welcomeChannel.createInvite({maxAge: 604800, maxUses: 1, unique: true})
                 .then(invite => mbmr.send({ embeds: [kickMessageEmbed] }))
