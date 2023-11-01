@@ -37,9 +37,6 @@ bot.on('ready', () =>
 
     console.log('Bot Online');
     bot.user.setActivity('Achieving Sentience...');
-    //const userlist = guild.members.fetch();
-    //let newmembers = userlist.guild.roles.cache.get('').members.map(m=>m.user.tag);
-    //let userlist = bot.guild.members.fetch('193349994617634816');
     //bot.user.setAvatar('http://i.imgur.com/KslihqE.png');
     //bot.user.setGame('$help');
 
@@ -56,7 +53,7 @@ bot.on('ready', () =>
             //const todaysDate = new Date();
             const todaysDate = new Date(Date.now()).toLocaleString().split(',')[0];
             // Find member's join date
-            const joinDate = member.joinedAt;
+            const joinDate = guildMember.joinedAt;
             console.log('Today: ' + todaysDate);
             console.log('Joined: ' + joinDate);
             // Add three days to member's join date
