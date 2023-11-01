@@ -51,7 +51,7 @@ bot.on('ready', (msg) =>
         let role1 = list.roles.cache.get('226507869401513984').members.map(m => m.user.id);
         console.log(role1);
         role1.forEach(member => {
-            if (roles.cache.has(newbID))
+            if (member.roles.cache.has(newbID))
             {
             console.log('This guy is still a newb: ' + role1);
 
