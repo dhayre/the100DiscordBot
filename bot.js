@@ -104,7 +104,7 @@ bot.on('message', (msg) =>
 bot.on('guildMemberAdd', (guildMember) =>
 {
     const member = interaction.member;
-    await member.roles.add(newbID);
+    member.roles.add(newbID);
     // Send a DM to the new user explaining our rules.
     bot.users.send(guildMember.user.id,
     {
