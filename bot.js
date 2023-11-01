@@ -101,9 +101,6 @@ Once you've completed this, post in the #welcome_new_members channel to be promo
 bot.on('message', (msg) =>
 {
     commands.process(bot, msg);
-}
-catch (error)
-{
 });
 
 bot.on('guildMemberAdd', (guildMember) =>
@@ -155,11 +152,6 @@ That's it! If you have any questions, please let a member of the leadership team
     leadershipChannel.send(`Hey leadership team! We have a new member. Please be sure to welcome them and encourage them to participate! New Member = ${guildMember.user}`);
 
     memberLogChannel.send(`New Member = ${guildMember.user}`);
-
-}
-catch (error)
-{
-
 });
 
 // When a user is removed for any reason (kicked/left on own) displays a message in
@@ -183,9 +175,7 @@ bot.on('guildMemberRemove', (guildMember) =>
         }
     });
 
-    }
-    catch (error)
-    {
+
 })
 
 // When a member is promoted to grunt or trooper, post a message in general
@@ -235,9 +225,7 @@ bot.on('guildMemberUpdate', (oldMember,newMember) =>
             }
         }
     }
-}
-catch (error)
-{
+
 })
 
 // When the bot shuts down for whatever reason we post a msg in bottestchannel
