@@ -64,7 +64,6 @@ bot.on('ready', () =>
 
             // If member has been here more than three days and is not a Grunt yet, kick 'em out
             // and send them a message why
-            const member = guildMember;
             // create embedded message to send to new user
             const kickMessageEmbed = new EmbedBuilder()
 	            .setColor(0x0099FF)
