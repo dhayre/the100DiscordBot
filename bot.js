@@ -149,7 +149,7 @@ bot.on('guildMemberAdd', (guildMember) =>
 
         )
 	.setTimestamp()
-	.setFooter({ text: 'If you have any questions, please let a member of the leadership team know or post in ' + ${ bot.channels.cache.get(welcomeChannelID) } + ' for help', iconURL: 'http://i.imgur.com/KslihqE.png' });
+	.setFooter({ text: `If you have any questions, please let a member of the leadership team know or post in ${ bot.channels.cache.get(welcomeChannelID) } for help`, iconURL: 'http://i.imgur.com/KslihqE.png' });
     // Send a DM to the new user explaining our rules.
     member.send({ embeds: [welcomeMessageEmbed] }).catch(err => {
         console.warn('Unable to DM this user:' + err);
