@@ -86,7 +86,7 @@ bot.on('ready', (rdy) =>
 
             if (joinDate < todaysDate - 3 && !mbmr.roles.cache.has(gruntID))
             {
-                console.log('Would kick ' + guildMember.name)
+                console.log('Would kick ' + mbmr.name)
                 // Generate a unique, single use, 7 day invite for the member and send them a DM
                 welcomeChannel.createInvite({maxAge: 604800, maxUses: 1, unique: true})
                 .then(invite => guildMember.send({ embeds: [kickMessageEmbed] }))
