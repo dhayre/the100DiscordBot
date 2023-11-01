@@ -144,8 +144,8 @@ bot.on('guildMemberAdd', (guildMember) =>
         * change your nickname in the text box \
         * click "Save Changes" at the bottom of the screen. \
         See here for more info: https://support.discordapp.com/hc/en-us/articles/219070107-Server-Nickname' },
-        { name: '\u200B', value: '**3**) Familiarize yourself with our ' + ${bot.channels.cache.get(rulesChannelID)} },
-        { name: '\u200B', value: '**4**) Once you\'ve done everything above, post in ' + ${bot.channels.cache.get(welcomeChannelID)} + ' to get promoted to Grunt and have full acess to our Discord. ' },
+        { name: '\u200B', value: `**3**) Familiarize yourself with our ${bot.channels.cache.get(rulesChannelID)}` },
+        { name: '\u200B', value: `**4**) Once you've done everything above, post in  ${bot.channels.cache.get(welcomeChannelID)} to get promoted to Grunt and have full acess to our Discord. ` },
 
         )
 	.setTimestamp()
