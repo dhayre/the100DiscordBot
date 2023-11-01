@@ -46,7 +46,7 @@ bot.on('ready', () =>
         const guild = bot.guilds.fetch(process.env.hostDiscordServer);
         const members = guild.members.cache;
         members.forEach(member => {
-            if member.roles.cache.some(role => role.name === newbID)
+            if guildMember.roles.cache.some(role => role.name === newbID)
             {
         //bot.guild.members.fetch(newbID).forEach(member =>
         //bot.guild.members.fetch({cache : false}).then(members=>{
