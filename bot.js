@@ -91,10 +91,10 @@ Once you've completed this, post in the #welcome_new_members channel to be promo
                 {
                     member.kick('Did not complete basic membership requirements after three days');
                 });
-        }
+        } */
     }
         }
-    }) */
+    }) 
         console.log('Live Server');
     }
     catch (error)
