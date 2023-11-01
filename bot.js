@@ -49,11 +49,11 @@ bot.on('ready', (msg) =>
         console.log(role1);
         role1.forEach(member => {
 
-            let user = msg.guild.member(msg.mentions.users.first()) || msg.guild.members.get(args[0])
+            let user = msg.guild.members.get(args[0])
             // Get today's date
             const todaysDate = new Date(Date.now()).toLocaleString().split(',')[0];
             // Find member's join date
-            const joinDate = member.joinedAt;
+            const joinDate = user.joinedAt;
             console.log('Member:' + member)
             console.log('Today: ' + todaysDate);
             console.log('Joined: ' + joinDate);
