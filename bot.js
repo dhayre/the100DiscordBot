@@ -63,7 +63,7 @@ bot.on('ready', () =>
 
             // If member has been here more than three days and is not a Grunt yet, kick 'em out
             // and send them a message why
-            if (threeDaysAfterJoinDate < todaysDate && bot.role.name != 'Grunt')
+            /* if (threeDaysAfterJoinDate < todaysDate && bot.role.name != 'Grunt')
             {
                 // Generate a unique, single use, 7 day invite for the member and send them a DM
                 welcomeChannel.createInvite({maxAge: 604800, maxUses: 1, unique: true})
@@ -94,7 +94,7 @@ Once you've completed this, post in the #welcome_new_members channel to be promo
         }
     }
         }
-    })
+    }) */
         console.log('Live Server');
     }
     catch (error)
