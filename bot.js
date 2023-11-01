@@ -44,8 +44,8 @@ bot.on('ready', () =>
     {
         // Get a list of members with Newbie role
         //const guest = bot.guild.members.fetch();
-        const guild = bot.guilds.cache.get(newbID);
-        const newmembers = guild.members.cache.get;
+        const newmembers = bot.guilds.cache.get(newbID);
+        //const newmembers = guild.members.cache.get;
         newmembers.forEach(member => {
             if (bot.role.id === newbID)
             {
