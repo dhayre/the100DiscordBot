@@ -135,6 +135,7 @@ bot.on('guildMemberAdd', (guildMember) =>
     // Send a DM to the new user explaining our rules.
     member.send(welcomeMessageEmbed).catch(err => {
         console.warn('Unable to DM this user:' + err);
+    });
     //}
     /* member.send(  
         {
