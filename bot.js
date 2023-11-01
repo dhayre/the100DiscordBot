@@ -108,7 +108,9 @@ bot.on('guildMemberAdd', (guildMember) =>
     const member = guildMember;
     member.roles.add(newbID);
     // Send a DM to the new user explaining our rules.
-    member.send(    
+    const embed = new Discord.MessageEmbed().setTitle('Welcome to ***Charlie Company 337***').setDescription('***CC337 rules***');
+    member.send(embed)
+    /* member.send(    
         {
         embed:
         {
@@ -134,7 +136,7 @@ __**There are a few things you need to do to gain full access to the Discord:**_
      **4**) Once you've done everything above, post in ${bot.channels.cache.get(welcomeChannelID)} to get promoted to Grunt and have full acess to our Discord.
 
 That's it! If you have any questions, please let a member of the leadership team know or post in ${bot.channels.cache.get(welcomeChannelID)} for help.`
-        }
+        } */
     });
 
     // Add Newbie role to new member upon joining
