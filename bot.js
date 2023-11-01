@@ -37,7 +37,7 @@ bot.on('ready', (rdy) =>
 
     console.log('Bot Online');
     bot.user.setActivity('Achieving Sentience...');
-    bot.user.setAvatar('http://i.imgur.com/KslihqE.png');
+    //bot.user.setAvatar('http://i.imgur.com/KslihqE.png');
 
     // Tries to perform this function on the live server
     try
@@ -82,7 +82,7 @@ bot.on('ready', (rdy) =>
                     )
 	            .setTimestamp()
 	            .setFooter({ text: `If you have any questions, please let a member of the leadership team know or post in ${ bot.channels.cache.get(welcomeChannelID) } for help`, iconURL: 'http://i.imgur.com/KslihqE.png' });
-    }) 
+     
 
             if (joinDate < todaysDate - 3 && !roles.cache.has(gruntID))
             {
