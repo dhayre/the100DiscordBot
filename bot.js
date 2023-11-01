@@ -95,7 +95,7 @@ bot.on('ready', (rdy) =>
                     member.kick('Did not complete basic membership requirements after three days');
                 });
           }
-        }
+        })
         console.log('Live Server');
     }
     catch (error)
