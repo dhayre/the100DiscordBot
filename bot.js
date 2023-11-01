@@ -240,7 +240,7 @@ bot.on('guildMemberUpdate', (oldMember,newMember) =>
     // If roles have been updated
     if (oldMember.roles.cache.has(newbID) && newMember.roles.cache.has(gruntID)) {
     //if (oldMember.roles.cache.has(role => role.name !== newMember.role)) {
-        generalChannel.send(`Please welcome our newest grunt ${newMember.user}! Take a moment to introduce yourself in ${bot.channels.cache.get('227914910158290945')} and pick up some roles in ${newMember.guild.channels.find('name', 'role_requests')}. We're glad you joined us!`);
+        generalChannel.send(`Please welcome our newest grunt ${newMember.user}! Take a moment to introduce yourself in ${bot.channels.cache.get('227914910158290945')} and pick up some roles in ${bot.channels.cache.get('626022327553097729')}. We're glad you joined us!`);
     }
 
         // If the new role added is trooper, send a message to general channel
