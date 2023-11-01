@@ -189,7 +189,7 @@ bot.on('guildMemberUpdate', (oldMember,newMember) =>
     const welcomeChannel = bot.channels.cache.get(welcomeChannelID);
 
     // If roles have been updated
-    if (member.roles.cache.some(role => role.name !== newMember.role)) {
+    if (oldMemberember.roles.cache.some(role => role.name !== newMember.role)) {
     //if(oldMember.role.equals(newMember.roles) === false) {
 
         // If the new role added is grunt, send message to general channel
