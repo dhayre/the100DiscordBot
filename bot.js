@@ -27,7 +27,7 @@ const bottestChannelID = '206052775061094401';
 const rulesChannelID = '523332842940268554';
 const generalChannelID = '193349994617634816'
 
-bot.on('ready', () =>
+bot.on('ready', (rdy) =>
 {
     const welcomeChannel = bot.channels.cache.get(welcomeChannelID);
     const rulesChannel = bot.channels.cache.get(rulesChannelID);
@@ -52,7 +52,7 @@ bot.on('ready', () =>
             // Get today's date
             const todaysDate = new Date(Date.now()).toLocaleString().split(',')[0];
             // Find member's join date
-            const joinDate = m.joinedAt;
+            const joinDate = msg.member.joinedAt;
             console.log('Member:' + member)
             console.log('Today: ' + todaysDate);
             console.log('Joined: ' + joinDate);
@@ -84,7 +84,7 @@ bot.on('ready', () =>
 	            .setFooter({ text: `If you have any questions, please let a member of the leadership team know or post in ${ bot.channels.cache.get(welcomeChannelID) } for help`, iconURL: 'http://i.imgur.com/KslihqE.png' });
     }); 
 
-             if (joinDate < todaysDate - 3 && !roles.cache.has(gruntID))
+            if (joinDate < todaysDate - 3 && !roles.cache.has(gruntID))
             {
                 console.log('Would kick ' + guildMember.name)
                 // Generate a unique, single use, 7 day invite for the member and send them a DM
