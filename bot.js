@@ -63,7 +63,7 @@ bot.on('ready', () =>
             {
                 // Generate a unique, single use, 7 day invite for the member and send them a DM
                 welcomeChannel.createInvite({maxAge: 604800, maxUses: 1, unique: true})
-                .then(invite => bot.users.get(member.user.id).send('Hello!',
+                .then(invite => bot.users.get(member.user.id).send(
                 {
                     embed:
                     {
