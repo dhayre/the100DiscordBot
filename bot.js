@@ -26,17 +26,17 @@ const bottestChannelID = '206052775061094401';
 const rulesChannelID = '523332842940268554';
 const generalChannelID = '193349994617634816'
 
-bot.on('ready', (ready) =>
+bot.on('ready', () =>
 {
     const welcomeChannel = bot.channels.cache.get(welcomeChannelID);
     const rulesChannel = bot.channels.cache.get(rulesChannelID);
     const botTestChannel = bot.channels.cache.get(bottestChannelID);
 	
-    botTestChannel.send('Boo Boo Bee Doo... Omnic v2.0 is ready to serve its CC337 Overlords!');
+    //botTestChannel.send('Boo Boo Bee Doo... Omnic v2.0 is ready to serve its CC337 Overlords!');
 
     console.log('Bot Online');
     bot.user.setActivity('Achieving Sentience...');
-    const userlist = bot.guild.members.fetch();
+    const userlist = guild.members.fetch();
     let newmembers = userlist.guild.roles.cache.get('226507869401513984').members.map(m=>m.user.tag);
     //bot.user.setAvatar('http://i.imgur.com/KslihqE.png');
     //bot.user.setGame('$help');
