@@ -17,7 +17,7 @@ const inviteUnique = true;
 const newbID = '226507869401513984';
 const gruntID = '267109091053142018';
 const troopID = '193350542888534018';
-const memberlogChannelID = '77240621176193025';
+const memberLogChannelID = '77240621176193025';
 const leadershipChannelID = '970859038336221184';
 const welcomeChannelID = '374762945848016906';
 const bottestChannelID = '206052775061094401';
@@ -143,20 +143,20 @@ That's it! If you have any questions, please let a member of the leadership team
     const leadershipChannel = bot.channels.cache.get(leadershipChannelID);
     const welcomeChannel = bot.channels.cache.get(welcomeChannelID);
     //const memberLogChannel = guildMember.guild.channels.find('name', 'member_log');
-    const memberLogChannel = bot.channels.cache.get(memberlogChannelID);
+    const memberLogChannel = bot.channels.cache.get(memberLogChannelID);
     // Post a message in welcome_new_members/company_leadership/member_log notifying users of new member.
     welcomeChannel.send(`Hey everyone! We have a new member. Please welcome ${guildMember.user} to our group! ${guildMember.user}, please read the post at the top of this channel for more information on how to get promoted to Grunt and be given access to the rest of the Discord. Happy gaming!`);
 
     leadershipChannel.send(`Hey leadership team! We have a new member. Please be sure to welcome them and encourage them to participate! New Member = ${guildMember.user}`);
 
-    memberLogChannel.send(`New Member = ${guildMember.user}`);
+    //memberLogChannel.send(`New Member = ${guildMember.user}`);
 });
 
 // When a user is removed for any reason (kicked/left on own) displays a message in
 // member log channel to notify mods and keep track of who has left.
 bot.on('guildMemberRemove', (guildMember) =>
 {
-    const memberLogChannel = bot.channels.cache.get(memberlogChannelID);
+    const memberLogChannel = bot.channels.cache.get(memberLogChannelID);
 
     // Check audit logs to see if member was kicked
     guildMember.guild.fetchAuditLogs('limit',1)
@@ -164,12 +164,12 @@ bot.on('guildMemberRemove', (guildMember) =>
 
         // If member was kicked by CC337Bot, send this message
         if(logs.entries.first().action === 'MEMBER_KICK' && logs.entries.first().executor.id === '206128006698237952') {
-            memberLogChannel.send(`Newbie ${guildMember.user} has been kicked! Good riddance!`);
+            leadershipChannel.send(`Newbie ${guildMember.user} has been kicked! Good riddance!`);
         }
 
         // If member was banned, left, or kicked by someone else, send this message
         else {
-            memberLogChannel.send(`Member Left = ${guildMember.user}`);
+            leadershipChannel.send(`Member Left = ${guildMember.user}`);
         }
     });
 
@@ -183,7 +183,7 @@ bot.on('guildMemberUpdate', (oldMember,newMember) =>
 {
     const generalChannel = bot.channels.cache.get(generalChannelID);
     const leadershipChannel = bot.channels.cache.get(leadershipChannelID);
-    const memberLogChannel = newMember.guild.channels.fetch(memberlogChannelID);
+    const memberLogChannel = newMember.guild.channels.fetch(memberLogChannelID);
     const welcomeChannel = bot.channels.cache.get(welcomeChannelID);
 
     // If roles have been updated
@@ -204,14 +204,14 @@ bot.on('guildMemberUpdate', (oldMember,newMember) =>
     if(newMember.nickname && oldMember.nickname !== newMember.nickname) {
         
         // Post a message to member_log
-        if (oldMember.nickname) {
+        /*if (oldMember.nickname) {
             memberLogChannel.send(`${oldMember.nickname} has changed their nickname to ${newMember.user}`);
         }
         
         else{
             memberLogChannel.send(`${oldMember.displayName} has added the nickname ${newMember.user}`);
         }
-        
+        */
         if(newMember.roles.exists(newbID)) {
         
             if (oldMember.nickname) {
