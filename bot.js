@@ -56,7 +56,7 @@ bot.on('ready', () =>
             //const todaysDate = new Date();
             const todaysDate = new Date(Date.now()).toLocaleString().split(',')[0];
             // Find member's join date
-            const joinDate = (member.joinedAt).format('YY/MM/DD');
+            const joinDate = member.joinedAt;
             console.log('Today: ' + todaysDate);
             console.log('Joined: ' + joinDate);
             // Add three days to member's join date
