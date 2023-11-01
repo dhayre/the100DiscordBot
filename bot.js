@@ -60,7 +60,7 @@ bot.on('ready', () =>
             const joinDate = member.joinedAt;
 
             // Add three days to member's join date
-            const threeDaysAfterJoinDate = joinDate.setDate(joinDate.getDate() + 3);
+            const threeDaysAfterJoinDate = joinDate.getDate() + 3;
 
             // If member has been here more than three days and is not a Grunt yet, kick 'em out
             // and send them a message why
