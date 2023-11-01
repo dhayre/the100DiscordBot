@@ -36,14 +36,14 @@ bot.on('ready', () =>
 
     console.log('Bot Online');
     bot.user.setActivity('Achieving Sentience...');
-    bot.user.setAvatar('http://i.imgur.com/KslihqE.png');
+    //bot.user.setAvatar('http://i.imgur.com/KslihqE.png');
     //bot.user.setGame('$help');
 
     // Tries to perform this function on the live server
     try
     {
         // Get a list of members with Newbie role
-        const guild = client.guilds.fetch();
+        const guild = bot.guilds.fetch();
         const members = guild.members.fetch(newbID);
         members.forEach(member => {
         //bot.guild.members.fetch(newbID).forEach(member =>
