@@ -44,7 +44,7 @@ bot.on('ready', () =>
     {
         // Get a list of members with Newbie role
         
-        bot.guild.members.cache(newbID).forEach(member =>
+        guild.members.cache(newbID).forEach(member =>
         //bot.guild.members.fetch({cache : false}).then(members=>{
         //members.filter(x=>x.roles.cache.has("id")) 
         {
