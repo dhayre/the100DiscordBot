@@ -27,7 +27,7 @@ const bottestChannelID = '206052775061094401';
 const rulesChannelID = '523332842940268554';
 const generalChannelID = '193349994617634816'
 
-bot.on('ready', (msg) =>
+bot.on('ready', () =>
 {
     const welcomeChannel = bot.channels.cache.get(welcomeChannelID);
     const rulesChannel = bot.channels.cache.get(rulesChannelID);
@@ -49,11 +49,10 @@ bot.on('ready', (msg) =>
         console.log(role1);
         role1.forEach(member => {
 
-            let user = msg.guild.members.get(args[0])
             // Get today's date
             const todaysDate = new Date(Date.now()).toLocaleString().split(',')[0];
             // Find member's join date
-            const joinDate = user.joinedAt;
+            const joinDate = role1.joinedAt;
             console.log('Member:' + member)
             console.log('Today: ' + todaysDate);
             console.log('Joined: ' + joinDate);
