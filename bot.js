@@ -43,8 +43,8 @@ bot.on('ready', () =>
     try
     {
         // Get a list of members with Newbie role
-        const guild = bot.guilds.fetch();
-        const members = guild.members.fetch();
+        const guest = bot.guilds.fetch(process.env.hostDiscordServer);
+        const members = guest.members.fetch();
         members.forEach(member => {
             if (bot.role.id === newbID)
             {
