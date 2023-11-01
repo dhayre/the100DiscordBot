@@ -46,7 +46,7 @@ bot.on('ready', () =>
         const guild = bot.guilds.fetch();
         const members = guild.members.fetch();
         members.forEach(member => {
-            if bot.role.id === newbID)
+            if (bot.role.id === newbID)
             {
         //bot.guild.members.fetch(newbID).forEach(member =>
         //bot.guild.members.fetch({cache : false}).then(members=>{
