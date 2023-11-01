@@ -111,10 +111,7 @@ bot.on('guildMemberAdd', (guildMember) =>
     //}
      member.send(    
         {
-        embed:
-        {
-            color: 65380,
-            description: `Welcome to ***Charlie Company 337***! We are a casual gaming group that has a ton of fun together. We're very active here in Discord, have games going every night and group events throughout the month.
+`Welcome to ***Charlie Company 337***! We are a casual gaming group that has a ton of fun together. We're very active here in Discord, have games going every night and group events throughout the month.
 
 __**There are a few things you need to do to gain full access to the Discord:**__
 
@@ -135,7 +132,7 @@ __**There are a few things you need to do to gain full access to the Discord:**_
      **4**) Once you've done everything above, post in ${bot.channels.cache.get(welcomeChannelID)} to get promoted to Grunt and have full acess to our Discord.
 
 That's it! If you have any questions, please let a member of the leadership team know or post in ${bot.channels.cache.get(welcomeChannelID)} for help.`
-        } 
+        
     }).catch(err => {
         console.warn("Unable to DM this user.");
     })
