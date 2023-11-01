@@ -36,8 +36,8 @@ bot.on('ready', (ready) =>
 
     console.log('Bot Online');
     bot.user.setActivity('Achieving Sentience...');
-    const userlist = guild.members.fetch();
-    const newmembers = guild.roles.cache.get('226507869401513984').members.map(m=>m.user.tag);
+    const userlist = ready.guild.members.fetch();
+    const newmembers = ready.guild.roles.cache.get('226507869401513984').members.map(m=>m.user.tag);
     //bot.user.setAvatar('http://i.imgur.com/KslihqE.png');
     //bot.user.setGame('$help');
 
