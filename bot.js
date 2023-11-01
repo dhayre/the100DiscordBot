@@ -52,7 +52,7 @@ bot.on('ready', () =>
             // Get today's date
             const todaysDate = new Date(Date.now()).toLocaleString().split(',')[0];
             // Find member's join date
-            const joinDate = role1.joinedAt;
+            const joinDate = m.joinedAt;
             console.log('Member:' + member)
             console.log('Today: ' + todaysDate);
             console.log('Joined: ' + joinDate);
