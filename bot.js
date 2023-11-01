@@ -27,7 +27,7 @@ const bottestChannelID = '206052775061094401';
 const rulesChannelID = '523332842940268554';
 const generalChannelID = '193349994617634816'
 
-bot.on('ready', (rdy) =>
+bot.on('ready', () =>
 {
     const welcomeChannel = bot.channels.cache.get(welcomeChannelID);
     const rulesChannel = bot.channels.cache.get(rulesChannelID);
@@ -37,7 +37,7 @@ bot.on('ready', (rdy) =>
 
     console.log('Bot Online');
     bot.user.setActivity('Achieving Sentience...');
-    //bot.user.setAvatar('http://i.imgur.com/KslihqE.png');
+    bot.user.setAvatar('http://i.imgur.com/KslihqE.png');
 
     // Tries to perform this function on the live server
     try
@@ -113,6 +113,7 @@ bot.on('message', (msg) =>
 bot.on('guildMemberAdd', (guildMember) =>
 {
     const member = guildMember;
+    // Add Newbie role to new member upon joining
     member.roles.add(newbID);
     // create embedded message to send to new user
     const welcomeMessageEmbed = new EmbedBuilder()
@@ -144,45 +145,9 @@ bot.on('guildMemberAdd', (guildMember) =>
     member.send({ embeds: [welcomeMessageEmbed] }).catch(err => {
         console.warn('Unable to DM this user:' + err);
     });
-    //}
-    /* member.send(  
-        {
-        embed:
-        {
-            color: 65380,
-            description: `Welcome to ***Charlie Company 337***! We are a casual gaming group that has a ton of fun together. We're very active here in Discord, have games going every night and group events throughout the month.
-
-__**There are a few things you need to do to gain full access to the Discord:**__
-
-     **1**) Join our group on the100.io. This is where we schedule our games. You can still LFG in Discord, but this is the core of our group. https://www.the100.io/g/3140
-
-     **2**) Be sure to set your nickname to let people know how to find you on your main platform (e.g. "Username#1234 (Bungie)" or "Username (Steam)").  
-     
-     To do this:
-     - right click your name in Discord
-     - select "Edit Server Profile"
-     - change your nickname in the text box 
-     - click "Save Changes" at the bottom of the screen.  
-
-     See here for more info: https://support.discordapp.com/hc/en-us/articles/219070107-Server-Nicknames
-
-     **3**) Familiarize yourself with our ${bot.channels.cache.get(rulesChannelID)}.
-
-     **4**) Once you've done everything above, post in ${bot.channels.cache.get(welcomeChannelID)} to get promoted to Grunt and have full acess to our Discord.
-
-That's it! If you have any questions, please let a member of the leadership team know or post in ${bot.channels.cache.get(welcomeChannelID)} for help.`
-        } 
-    }).catch(err => {
-        console.warn("Unable to DM this user - " + err);
-    })*/
-    // Add Newbie role to new member upon joining
-    //guildMember.addRole(guildMember.guild.roles.find('name', 'Newbie'));
-    //const role = bot.user.getRole(newbID);
-    //const member = guildMember.options.getMember(bot.user.id);
 
     const leadershipChannel = bot.channels.cache.get(leadershipChannelID);
     const welcomeChannel = bot.channels.cache.get(welcomeChannelID);
-    //const memberLogChannel = guildMember.guild.channels.find('name', 'member_log');
     const memberLogChannel = bot.channels.cache.get(memberLogChannelID);
     // Post a message in welcome_new_members/company_leadership/member_log notifying users of new member.
     welcomeChannel.send(`Hey everyone! We have a new member. Please welcome ${guildMember.user} to our group! ${guildMember.user}, please read the post at the top of this channel for more information on how to get promoted to Grunt and be given access to the rest of the Discord. Happy gaming!`);
