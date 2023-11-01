@@ -26,7 +26,7 @@ const bottestChannelID = '206052775061094401';
 const rulesChannelID = '523332842940268554';
 const generalChannelID = '193349994617634816'
 
-bot.on('ready', () =>
+bot.on('ready', (ready) =>
 {
     const welcomeChannel = bot.channels.cache.get(welcomeChannelID);
     const rulesChannel = bot.channels.cache.get(rulesChannelID);
@@ -43,11 +43,9 @@ bot.on('ready', () =>
     try
     {
         // Get a list of members with Newbie role
-        //const guest = bot.guild.members.fetch();
-        //const newmembers = guildmgr.guilds.cache.get(newbID);
-        //bot.guild.members.list()
-        //    .then(console.log)
-         //   .catch(console.error);
+        var guild = ready.guild;
+        guild.roles.get('226507869401513984').members.map(m=>m.user.tag);
+        
         const newmembers = bot.guild.members.cache.get;
         console.log('Newb ID:' + newbID);
         console.log('Members:' + newmembers);
