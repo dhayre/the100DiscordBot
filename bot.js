@@ -300,4 +300,4 @@ bot.on('error', (e) =>
 });
 
 // Discord.js command to log the bot in to discord. Uses authDetails json file
-//bot.login(authDetails.token);
+bot.login(authDetails.token);
