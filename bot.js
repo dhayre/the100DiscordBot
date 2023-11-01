@@ -193,12 +193,12 @@ bot.on('guildMemberUpdate', (oldMember,newMember) =>
     //if(oldMember.role.equals(newMember.roles) === false) {
 
         // If the new role added is grunt, send message to general channel
-        if(oldMember.roles.exists(gruntID) === false && newMember.roles.exists(gruntID)) {
+        if (oldMember.roles.cache.some(role => role.name !== gruntID) && newMember.roles.cache.some(role => role.name === gruntID)) {
             generalChannel.send(`Please welcome our newest grunt ${newMember.user}! Take a moment to introduce yourself in ${bot.channels.cache.get('227914910158290945')} and pick up some roles in ${newMember.guild.channels.find('name', 'role_requests')}. We're glad you joined us!`);
         }
 
         // If the new role added is trooper, send a message to general channel
-        else if (oldMember.roles.exists(troopID) === false && newMember.roles.exists(troopID)) {
+        else if (oldMember.roles.cache.some(role => role.name !== troopID) === false && newMember.roles.cache.some(role => role.name === troopID)) {
             generalChannel.send(`Congrats to ${newMember.user} on making Trooper status! Thanks for playing with us! ${newMember.guild.emojis.find('409058931571163137')}`); // Dorito emoji 409058931571163137
         }
     }
@@ -215,8 +215,7 @@ bot.on('guildMemberUpdate', (oldMember,newMember) =>
             memberLogChannel.send(`${oldMember.displayName} has added the nickname ${newMember.user}`);
         }
         
-        if(newMember.roles.exists(newbID)) {
-        
+        if(newMember.rolescache.some(role => role.name === newbID)) {
             if (oldMember.nickname) {
                 welcomeChannel.send(`Newbie ${oldMember.nickname} has changed their nickname to ${newMember.user}`);
             }
