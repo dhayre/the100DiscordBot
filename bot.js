@@ -43,7 +43,7 @@ bot.on('ready', (ready) =>
     try
     {
         // Get a list of members with Newbie role
-        guild.roles.cache.find('226507869401513984').members.map(m=>m.user.tag);
+        message.guild.roles.cache.find('226507869401513984').members.map(m=>m.user.tag);
 
         //const newmembers = bot.guild.members.cache.get;
         //console.log('Newb ID:' + newbID);
