@@ -1,4 +1,4 @@
-const { Client, GatewayIntentBits } = require('discord.js');
+const { Client, GatewayIntentBits, Embed } = require('discord.js');
 const bot = new Client({
 	intents: [
 		GatewayIntentBits.Guilds,
@@ -63,7 +63,7 @@ bot.on('ready', () =>
             {
                 // Generate a unique, single use, 7 day invite for the member and send them a DM
                 welcomeChannel.createInvite({maxAge: 604800, maxUses: 1, unique: true})
-                .then(invite => member.send(
+                .then(invite => member.send(guildMember, 
                 {
                     embed:
                     {
@@ -108,8 +108,9 @@ bot.on('guildMemberAdd', (guildMember) =>
     const member = guildMember;
     member.roles.add(newbID);
     // Send a DM to the new user explaining our rules.
-    const embed = new Client.MessageEmbed().setTitle('Welcome to ***Charlie Company 337***').setDescription('***CC337 rules***');
-    member.send(embed);
+    member.send('Welcome to ***Charlie Company 337***').catch(err => {
+        console.warn("Unable to DM this user.");
+    });
     /* member.send(    
         {
         embed:
