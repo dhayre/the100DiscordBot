@@ -38,7 +38,7 @@ bot.on('ready', (msg) =>
     bot.user.setActivity('Achieving Sentience...');
     //const userlist = guild.members.fetch();
     //let newmembers = userlist.guild.roles.cache.get('').members.map(m=>m.user.tag);
-    const member = msg.options.getMember();
+    const member = msg.options.getMember('95627781135663104');
     if (member.roles.cache.some(role => role.name === 'Newbie')) {
 }
     let list = bot.guilds.cache.get('374762945848016906');
