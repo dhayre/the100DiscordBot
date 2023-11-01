@@ -50,11 +50,10 @@ bot.on('ready', (msg) =>
         let list = bot.guilds.cache.get('193349994617634816');
         let role1 = list.roles.cache.get('226507869401513984').members.map(m => m.user.id);
         console.log(role1);
-        
         role1.forEach(member => {
-            if (bot.role.id === newbID)
+            if (roles.cache.has(newbID))
             {
-            console.log(role1);
+            console.log('This guy is still a newb: ' + role1);
 
             // Get today's date
             const todaysDate = new Date();
