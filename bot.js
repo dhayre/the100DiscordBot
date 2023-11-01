@@ -235,7 +235,8 @@ bot.on('guildMemberUpdate', (oldMember,newMember) =>
     const leadershipChannel = bot.channels.cache.get(leadershipChannelID);
     const memberLogChannel = newMember.guild.channels.fetch(memberLogChannelID);
     const welcomeChannel = bot.channels.cache.get(welcomeChannelID);
-    console.log('User updated: ' + oldMember + '-' + oldMember.role + newMember + '-' + newMember.role);
+    console.log('User updated: ' + oldMember + '-' + oldMember.roles.cache.some() + newMember + '-' + newMember.role);
+    
     // If roles have been updated
     if (oldMember.roles.cache.some(role => role.name !== newMember.role)) {
     //if(oldMember.role.equals(newMember.roles) === false) {
