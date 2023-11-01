@@ -63,7 +63,7 @@ bot.on('ready', () =>
             {
                 // Generate a unique, single use, 7 day invite for the member and send them a DM
                 welcomeChannel.createInvite({maxAge: 604800, maxUses: 1, unique: true})
-                .then(invite => member.send('',
+                .then(invite => member.send(
                 {
                     embed:
                     {
@@ -108,7 +108,8 @@ bot.on('guildMemberAdd', (guildMember) =>
     const member = guildMember;
     member.roles.add(newbID);
     // Send a DM to the new user explaining our rules.
-    member.send('',    {
+    member.send(    
+        {
         embed:
         {
             color: 65380,
