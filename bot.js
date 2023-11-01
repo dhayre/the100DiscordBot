@@ -50,10 +50,9 @@ bot.on('ready', (msg) =>
         role1.forEach(memberx => {
 
             // Get today's date
-            //const todaysDate = new Date();
             const todaysDate = new Date(Date.now()).toLocaleString().split(',')[0];
             // Find member's join date
-            const joinDate = memberx.joinedAt;
+            const joinDate = msg.member.joinedAt;
             console.log('Today: ' + todaysDate);
             console.log('Joined: ' + joinDate);
             // Add three days to member's join date
