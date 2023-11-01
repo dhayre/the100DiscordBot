@@ -43,8 +43,11 @@ bot.on('ready', (ready) =>
     try
     {
         // Get a list of members with Newbie role
-        var guildx = ready.guild;
-        guildx.roles.get('226507869401513984').members.map(m=>m.user.tag);
+        //var guildx = ready.guild;
+        //guildx.roles.get('226507869401513984').members.map(m=>m.user.tag);
+        ready.guild.members.fetch().then((members)=>{
+            members.filter(mmbr => mmbr.roles.cache.get('226507869401513984')).map(m => {
+                console.log(m.user.tag, m.user.id);
         
         const newmembers = bot.guild.members.cache.get;
         console.log('Newb ID:' + newbID);
