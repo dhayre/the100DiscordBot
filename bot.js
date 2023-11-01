@@ -36,7 +36,7 @@ bot.on('ready', () =>
 
     console.log('Bot Online');
     bot.user.setActivity('Achieving Sentience...');
-    bot.user.setThumbnail('http://i.imgur.com/KslihqE.png');
+    bot.user.setAvatar('http://i.imgur.com/KslihqE.png');
     //bot.user.setGame('$help');
 
     // Tries to perform this function on the live server
