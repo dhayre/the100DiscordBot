@@ -26,7 +26,7 @@ const bottestChannelID = '206052775061094401';
 const rulesChannelID = '523332842940268554';
 const generalChannelID = '193349994617634816'
 
-bot.on('ready', () =>
+bot.on('ready', (msg) =>
 {
     const welcomeChannel = bot.channels.cache.get(welcomeChannelID);
     const rulesChannel = bot.channels.cache.get(rulesChannelID);
@@ -38,7 +38,10 @@ bot.on('ready', () =>
     bot.user.setActivity('Achieving Sentience...');
     //const userlist = guild.members.fetch();
     //let newmembers = userlist.guild.roles.cache.get('').members.map(m=>m.user.tag);
-    let list = bot.guilds.cache.get("374762945848016906");
+    const member = msg.options.getMember();
+    if (member.roles.cache.some(role => role.name === 'Newbie')) {
+}
+    let list = bot.guilds.cache.get('374762945848016906');
     let role1 = list.roles.cache.get('226507869401513984').members.map(m => m.user.id);
     console.log(role1);
     //bot.user.setAvatar('http://i.imgur.com/KslihqE.png');
