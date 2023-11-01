@@ -52,7 +52,7 @@ bot.on('ready', () =>
         //    .then(console.log)
          //   .catch(console.error);
         //const newmembers = guild.members.cache.get;
-        newmembers.forEach(member => {
+        guildmgr.list.forEach(member => {
             if (bot.role.id === newbID)
             {
         //bot.guild.members.fetch(newbID).forEach(member =>
