@@ -55,7 +55,7 @@ bot.on('ready', (msg) =>
         //const newmembers = bot.guild.members.cache.get;
         //console.log('Newb ID:' + newbID);
         //console.log('Members:' + newmembers);
-        role1.members.forEach(member => {
+        role1.forEach(member => {
             if (bot.role.id === newbID)
             {
         //bot.guild.members.fetch(newbID).forEach(member =>
@@ -144,12 +144,12 @@ bot.on('guildMemberAdd', (guildMember) =>
         * change your nickname in the text box \
         * click "Save Changes" at the bottom of the screen. \
         See here for more info: https://support.discordapp.com/hc/en-us/articles/219070107-Server-Nickname' },
-        { name: '\u200B', value: '**3**) Familiarize yourself with our ' + bot.channels.cache.get(rulesChannelID) },
-        { name: '\u200B', value: '**4**) Once you\'ve done everything above, post in ${bot.channels.cache.get(welcomeChannelID)} to get promoted to Grunt and have full acess to our Discord. ' },
+        { name: '\u200B', value: '**3**) Familiarize yourself with our ' + ${bot.channels.cache.get(rulesChannelID)} },
+        { name: '\u200B', value: '**4**) Once you\'ve done everything above, post in ' + ${bot.channels.cache.get(welcomeChannelID)} + ' to get promoted to Grunt and have full acess to our Discord. ' },
 
         )
 	.setTimestamp()
-	.setFooter({ text: 'If you have any questions, please let a member of the leadership team know or post in ' + bot.channels.cache.get(welcomeChannelID) + ' for help', iconURL: 'http://i.imgur.com/KslihqE.png' });
+	.setFooter({ text: 'If you have any questions, please let a member of the leadership team know or post in ' + ${ bot.channels.cache.get(welcomeChannelID) } + ' for help', iconURL: 'http://i.imgur.com/KslihqE.png' });
     // Send a DM to the new user explaining our rules.
     member.send({ embeds: [welcomeMessageEmbed] }).catch(err => {
         console.warn('Unable to DM this user:' + err);
@@ -235,7 +235,7 @@ bot.on('guildMemberUpdate', (oldMember,newMember) =>
     const leadershipChannel = bot.channels.cache.get(leadershipChannelID);
     const memberLogChannel = newMember.guild.channels.fetch(memberLogChannelID);
     const welcomeChannel = bot.channels.cache.get(welcomeChannelID);
-
+    console.log('User updated: ' + oldMember + ' ' + newMember)
     // If roles have been updated
     if (oldMember.roles.cache.some(role => role.name !== newMember.role)) {
     //if(oldMember.role.equals(newMember.roles) === false) {
