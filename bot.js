@@ -50,7 +50,7 @@ bot.on('ready', (rdy) =>
             let mbmr = list.members.cache.get(member);
 
             // Get today's date
-            const todaysDate = new Date(Date.now()).toLocaleString().split(',')[0];
+            const todaysDate = new Date(); //(Date.now()).toLocaleString().split(',')[0];
             // Find member's join date
             const joinDate = mbmr.joinedAt;
             console.log('Member:' + mbmr)
