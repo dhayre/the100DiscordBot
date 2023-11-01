@@ -51,49 +51,55 @@ bot.on('ready', () =>
         let role1 = list.roles.cache.get('226507869401513984').members.map(m => m.user.id);
         console.log(role1);
         role1.forEach(member => {
-            console.log('This guy is still a newb: ' + role1);
 
             // Get today's date
             const todaysDate = new Date();
 
             // Find member's join date
             const joinDate = member.joinedAt;
-
+            console.log('Today: ' + todaysDate);
+            console.log('Joined: ' + joinDate);
             // Add three days to member's join date
-            const threeDaysAfterJoinDate = joinDate.getDate() + 3;
+            //const threeDaysAfterJoinDate = joinDatejoinDate.getDate() + 3);
 
             // If member has been here more than three days and is not a Grunt yet, kick 'em out
             // and send them a message why
-            /* if (threeDaysAfterJoinDate < todaysDate && bot.role.name != 'Grunt')
+            const member = guildMember;
+            // create embedded message to send to new user
+            const kickMessageEmbed = new EmbedBuilder()
+	            .setColor(0x0099FF)
+	            .setTitle('Welcome to ***Charlie Company 337***!')
+	            .setURL('https://www.the100.io/groups/v2/3140')
+	            .setAuthor({ name: 'CC337 Leadership Team', iconURL: 'https://pwntastic-avatar-production.s3.amazonaws.com/uploads/group/header_image/3140/CC337-5.png', url: 'https://www.the100.io/groups/v2/3140' })
+	            .setThumbnail('http://i.imgur.com/KslihqE.png')
+	            .addFields(
+		            { name: '\u200B', value: 'Hello, you’ve been removed from the ***Charlie Company 337*** Discord for not completing basic membership requirements after three days. \
+                    Feel free to rejoin and follow these instructions to access the rest of the Discord: \
+                    __**To Gain Full Access to the CC337 Discord:**__ \
+                     **1**) Rejoin Discord: https://discord.gg/${invite.code}  This invite is single-use only and will expire after 7 days \
+                     **2**) Change your nickname on Discord to your Bungie ID, Steam ID or Battlenet Tag. See how to here: https://support.discordapp.com/hc/en-us/articles/219070107-Server-Nicknames \
+                     **3**) Join our group on the100: https://www.the100.io/groups/3140 \
+                     \
+                    Once you\'ve completed this, post in the #welcome_new_members channel to be promoted to Grunt and receive access to the rest of the Discord.`' },
+
+		            { name: '\u200B', value: '\u200B' },
+                    )
+	            .setTimestamp()
+	            .setFooter({ text: `If you have any questions, please let a member of the leadership team know or post in ${ bot.channels.cache.get(welcomeChannelID) } for help`, iconURL: 'http://i.imgur.com/KslihqE.png' });
+    }); 
+
+             if (joinDate < todaysDate - 3 && !roles.cache.has(gruntID))
             {
+                console.log('Would kick ' + guildMember.name)
                 // Generate a unique, single use, 7 day invite for the member and send them a DM
                 welcomeChannel.createInvite({maxAge: 604800, maxUses: 1, unique: true})
-                .then(invite => guildMember.send( 
-                {
-                    embed:
-                    {
-                        color: 65380,
-                        description: `Hello, you’ve been removed from the ***Charlie Company 337*** Discord for not completing basic membership requirements after three days.
-
-Feel free to rejoin and follow these instructions to access the rest of the Discord:
-
-__**To Gain Full Access to the CC337 Discord:**__
-
- **1**) Rejoin Discord: https://discord.gg/${invite.code}  This invite is single-use only and will expire after 7 days
-
- **2**) Change your nickname on Discord to your Bungie ID, Steam ID or Battlenet Tag. See how to here: https://support.discordapp.com/hc/en-us/articles/219070107-Server-Nicknames
-
- **3**) Join our group on the100: https://www.the100.io/groups/3140
-
-Once you've completed this, post in the #welcome_new_members channel to be promoted to Grunt and receive access to the rest of the Discord.`
-                    }
-                }))
+                .then(invite => guildMember.send({ embeds: [kickMessageEmbed] }))
                 .then(() =>
                 {
                     member.kick('Did not complete basic membership requirements after three days');
                 });
-        } */
-    }) 
+          }
+
         console.log('Live Server');
     }
     catch (error)
