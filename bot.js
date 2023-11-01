@@ -84,7 +84,7 @@ bot.on('ready', (rdy) =>
 	            .setFooter({ text: `If you have any questions, please let a member of the leadership team know or post in ${ bot.channels.cache.get(welcomeChannelID) } for help`, iconURL: 'http://i.imgur.com/KslihqE.png' });
      
 
-            if (todaysDate - joinDate < 259200000 && member.roles.cache.has(newbID))
+            if (todaysDate - joinDate < 259200000 && mbmr.roles.cache.some(newbID))
             {
                 console.log('Would kick ' + member.name)
                 // Generate a unique, single use, 7 day invite for the member and send them a DM
