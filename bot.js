@@ -50,16 +50,16 @@ bot.on('ready', (ready) =>
                 console.log(m.user.tag, m.user.id);
             })
         
-        const newmembers = bot.guild.members.cache.get;
-        console.log('Newb ID:' + newbID);
-        console.log('Members:' + newmembers);
+        //const newmembers = bot.guild.members.cache.get;
+        //console.log('Newb ID:' + newbID);
+        //console.log('Members:' + newmembers);
         guest.members2.list.forEach(member => {
             if (bot.role.id === newbID)
             {
         //bot.guild.members.fetch(newbID).forEach(member =>
         //bot.guild.members.fetch({cache : false}).then(members=>{
         //members.filter(x=>x.roles.cache.has("id")) 
-        {
+        
             // Get today's date
             const todaysDate = new Date();
 
