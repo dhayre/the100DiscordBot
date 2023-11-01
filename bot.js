@@ -46,7 +46,6 @@ bot.on('ready', () =>
         // CC337 Server
         bot.guild.roles.get(newbID).members.forEach((member) =>
         {
-            const member = guildMember;
             // Get today's date
             const todaysDate = new Date();
 
@@ -62,7 +61,7 @@ bot.on('ready', () =>
             {
                 // Generate a unique, single use, 7 day invite for the member and send them a DM
                 welcomeChannel.createInvite({maxAge: 604800, maxUses: 1, unique: true})
-                .then(invite => member.send( 
+                .then(invite => guildMember.send( 
                 {
                     embed:
                     {
