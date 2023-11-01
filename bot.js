@@ -189,7 +189,8 @@ bot.on('guildMemberUpdate', (oldMember,newMember) =>
     const welcomeChannel = bot.channels.cache.get(welcomeChannelID);
 
     // If roles have been updated
-    if(oldMember.role.equals(newMember.roles) === false) {
+    if (member.roles.cache.some(role => role.name !== newMember.role)) {
+    //if(oldMember.role.equals(newMember.roles) === false) {
 
         // If the new role added is grunt, send message to general channel
         if(oldMember.roles.exists(gruntID) === false && newMember.roles.exists(gruntID)) {
@@ -252,6 +253,8 @@ bot.on('warn', (e) =>
 // Error Handler
 bot.on('error', (e) =>
 {
+    const botTestChannel = bot.channels.fetch(bottestChannelID);
+    botTestChannel.send('I\'M MEEEEEELTING. - ' + e);
     console.error(e);
 });
 
