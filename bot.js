@@ -33,12 +33,11 @@ bot.on('ready', (rdy) =>
     const rulesChannel = bot.channels.cache.get(rulesChannelID);
     const botTestChannel = bot.channels.cache.get(bottestChannelID);
 	
-    //botTestChannel.send('Boo Boo Bee Doo... Omnic v2.0 is ready to serve its CC337 Overlords!');
+    botTestChannel.send('Boo Boo Bee Doo... Omnic v2.0 is ready to serve its CC337 Overlords!');
 
     console.log('Bot Online');
     bot.user.setActivity('Achieving Sentience...');
-    //bot.user.setAvatar('http://i.imgur.com/KslihqE.png');
-    //bot.user.setGame('$help');
+    bot.user.setAvatar('http://i.imgur.com/KslihqE.png');
 
     // Tries to perform this function on the live server
     try
@@ -48,7 +47,7 @@ bot.on('ready', (rdy) =>
         let role1 = list.roles.cache.get('226507869401513984').members.map(m => m.user.id);
         console.log(role1);
         role1.forEach((member) => {
-            let mbmr = member.guild.members.get(args[0])
+            let mbmr = bot.guild.members.get(args[0])
 
             // Get today's date
             const todaysDate = new Date(Date.now()).toLocaleString().split(',')[0];
