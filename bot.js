@@ -235,7 +235,6 @@ bot.on('guildMemberUpdate', (oldMember,newMember) =>
     const leadershipChannel = bot.channels.cache.get(leadershipChannelID);
     const memberLogChannel = newMember.guild.channels.fetch(memberLogChannelID);
     const welcomeChannel = bot.channels.cache.get(welcomeChannelID);
-    console.log('User updated: ' + oldMember + '-' + oldMember.roles.cache.get + newMember + '-' + newMember.role);
     
     // If roles have been updated
     if (oldMember.roles.cache.has(newbID) && newMember.roles.cache.has(gruntID)) {
@@ -245,7 +244,7 @@ bot.on('guildMemberUpdate', (oldMember,newMember) =>
 
         // If the new role added is trooper, send a message to general channel
     if (oldMember.roles.cache.has(gruntID) && newMember.roles.cache.has(troopID)) {
-            generalChannel.send(`Congrats to ${newMember.user} on making Trooper status! Thanks for playing with us! ${newMember.guild.emojis.find('409058931571163137')}`); // Dorito emoji 409058931571163137
+            generalChannel.send(`Congrats to ${newMember.user} on making Trooper status! Thanks for playing with us! ${newMember.guild.emojis.cache.get('409058931571163137')}`); // Dorito emoji 409058931571163137
         }
 
     // If a newbie has changed their nickname
