@@ -129,7 +129,6 @@ bot.on('guildMemberAdd', (guildMember) =>
         { name: 'Inline field title', value: 'MESSAGE', inline: false },
 
         )
-	.setImage('http://i.imgur.com/KslihqE.png')
 	.setTimestamp()
 	.setFooter({ text: 'If you have any questions, please let a member of the leadership team know or post in ${bot.channels.cache.get(welcomeChannelID)} for help', iconURL: 'http://i.imgur.com/KslihqE.png' });
     // Send a DM to the new user explaining our rules.
