@@ -47,7 +47,7 @@ bot.on('ready', () =>
         const newmembers = bot.guilds.cache.get(newbID);
         console.log('Newb ID:' + newbID);
         console.log('Members:' + bot.guilds.cache.get(newbID));
-        bot.guild.members.fetch()
+        bot.guild.members.list()
             .then(console.log)
             .catch(console.error);
         //const newmembers = guild.members.cache.get;
