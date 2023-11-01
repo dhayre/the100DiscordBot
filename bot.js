@@ -40,9 +40,6 @@ bot.on('ready', (msg) =>
     //const userlist = guild.members.fetch();
     //let newmembers = userlist.guild.roles.cache.get('').members.map(m=>m.user.tag);
     //let userlist = bot.guild.members.fetch('193349994617634816');
-    let list = bot.guilds.cache.get('193349994617634816');
-    let role1 = list.roles.cache.get('226507869401513984').members.map(m => m.user.id);
-    console.log(role1);
     //bot.user.setAvatar('http://i.imgur.com/KslihqE.png');
     //bot.user.setGame('$help');
 
@@ -50,17 +47,13 @@ bot.on('ready', (msg) =>
     try
     {
         // Get a list of members with Newbie role
-        //message.guild.roles.cache.find('226507869401513984').members.map(m=>m.user.tag);
-
-        //const newmembers = bot.guild.members.cache.get;
-        //console.log('Newb ID:' + newbID);
-        //console.log('Members:' + newmembers);
+        let list = bot.guilds.cache.get('193349994617634816');
+        let role1 = list.roles.cache.get('226507869401513984').members.map(m => m.user.id);
+        console.log(role1);
+        
         role1.forEach(member => {
             if (bot.role.id === newbID)
             {
-        //bot.guild.members.fetch(newbID).forEach(member =>
-        //bot.guild.members.fetch({cache : false}).then(members=>{
-        //members.filter(x=>x.roles.cache.has("id")) 
             console.log(role1);
 
             // Get today's date
