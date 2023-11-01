@@ -56,7 +56,7 @@ bot.on('ready', () =>
             const todaysDate = new Date();
 
             // Find member's join date
-            const joinDate = member.joinedAt;
+            const joinDate = guildMember.joinedAt;
             console.log('Today: ' + todaysDate);
             console.log('Joined: ' + joinDate);
             // Add three days to member's join date
