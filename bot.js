@@ -101,7 +101,7 @@ bot.on('ready', (rdy) =>
     catch (error)
     {
         console.log('Non Live Server. Reason: ' + error);
-    }
+    })
 });
 
 // Handles commands
