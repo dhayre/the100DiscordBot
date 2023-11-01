@@ -56,7 +56,7 @@ bot.on('ready', (rdy) =>
             console.log('Member:' + mbmr);
             console.log('Member:' + member.name);
             console.log('Today: ' + todaysDate);
-            console.log('Joined: ' + joinDate);
+            console.log('Joined: ' + member.roles.cache.has(gruntID));
             // Add three days to member's join date
             //const threeDaysAfterJoinDate = joinDatejoinDate.getDate() + 3);
 
