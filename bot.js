@@ -48,7 +48,7 @@ bot.on('ready', (rdy) =>
         let role1 = list.roles.cache.get('226507869401513984').members.map(m => m.user.id);
         console.log(role1);
         role1.forEach((member) => {
-            let mbmr = rdy.guild.members.get(args[0]);
+            let mbmr = bot.guild.members.get(args[0]);
 
             // Get today's date
             const todaysDate = new Date(Date.now()).toLocaleString().split(',')[0];
