@@ -48,6 +48,7 @@ bot.on('ready', (ready) =>
         ready.guild.members.fetch().then((members)=>{
             members.filter(mmbr => mmbr.roles.cache.get('226507869401513984')).map(m => {
                 console.log(m.user.tag, m.user.id);
+            }
         
         const newmembers = bot.guild.members.cache.get;
         console.log('Newb ID:' + newbID);
