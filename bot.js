@@ -47,7 +47,7 @@ bot.on('ready', () =>
         const guildmgr = new GuildMemberManager();
         const newmembers = guildmgr.guilds.cache.get(newbID);
         console.log('Newb ID:' + newbID);
-        console.log('Members:' + bot.guilds.members.list);
+        console.log('Members:' + newmembers);
         //bot.guild.members.list()
         //    .then(console.log)
          //   .catch(console.error);
