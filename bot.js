@@ -46,7 +46,7 @@ bot.on('ready', () =>
         // CC337 Server
         bot.guild.roles.get(newbID).members.forEach((member) =>
         {
-
+            const member = guildMember;
             // Get today's date
             const todaysDate = new Date();
 
