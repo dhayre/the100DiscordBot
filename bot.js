@@ -116,17 +116,17 @@ bot.on('guildMemberAdd', (guildMember) =>
 	.addFields(
 		{ name: 'Regular field title', value: 'We are a casual gaming group that has a ton of fun together. We\'re very active here in Discord, have games going every night and group events throughout the month.' },
 		{ name: '\u200B', value: '\u200B' },
-		{ name: 'Inline field title', value: '__**There are a few things you need to do to gain full access to the Discord:**__', inline: true },
-		{ name: 'Inline field title', value: '**1**) Join our group on the100.io. This is where we schedule our games. You can still LFG in Discord, but this is the core of our group. https://www.the100.io/g/3140', inline: true },
-        { name: 'Inline field title', value: '**2**) Be sure to set your nickname to let people know how to find you on your main platform (e.g. "Username#1234 (Bungie)" or "Username (Steam)").', inline: true },
+		{ name: 'Inline field title', value: '__**There are a few things you need to do to gain full access to the Discord:**__', inline: false },
+		{ name: 'Inline field title', value: '**1**) Join our group on the100.io. This is where we schedule our games. You can still LFG in Discord, but this is the core of our group. https://www.the100.io/g/3140', inline: false },
+        { name: 'Inline field title', value: '**2**) Be sure to set your nickname to let people know how to find you on your main platform (e.g. "Username#1234 (Bungie)" or "Username (Steam)").', inline: false },
         { name: '\u200B', value: '\u200B' },
         { name: 'Inline field title', value: 'To do this: \
         - right click your name in Discord \
         - select "Edit Server Profile" \
         - change your nickname in the text box \
-        - click "Save Changes" at the bottom of the screen.', inline: true },
-        { name: 'Inline field title', value: 'See here for more info: https://support.discordapp.com/hc/en-us/articles/219070107-Server-Nickname', inline: true },
-        { name: 'Inline field title', value: 'MESSAGE', inline: true },
+        - click "Save Changes" at the bottom of the screen.', inline: false },
+        { name: 'Inline field title', value: 'See here for more info: https://support.discordapp.com/hc/en-us/articles/219070107-Server-Nickname', inline: false },
+        { name: 'Inline field title', value: 'MESSAGE', inline: false },
 
         )
 	.setImage('http://i.imgur.com/KslihqE.png')
