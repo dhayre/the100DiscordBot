@@ -46,7 +46,7 @@ bot.on('ready', () =>
         //const guest = bot.guild.members.fetch();
         const newmembers = bot.guilds.cache.get(newbID);
         console.log('Newb ID:' + newbID);
-        console.log('Members:' + bot.guilds.members.list());
+        console.log('Members:' + bot.guilds.members.list);
         //bot.guild.members.list()
         //    .then(console.log)
          //   .catch(console.error);
