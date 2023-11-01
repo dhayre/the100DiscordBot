@@ -1,4 +1,4 @@
-const { Client, GatewayIntentBits, Embed } = require('discord.js');
+const { Client, GatewayIntentBits, EmbedBuilder } = require('discord.js');
 const bot = new Client({
 	intents: [
 		GatewayIntentBits.Guilds,
@@ -105,11 +105,38 @@ bot.on('guildMemberAdd', (guildMember) =>
 {
     const member = guildMember;
     member.roles.add(newbID);
+    // create embedded message to send to new user
+    const welcomeMessageEmbed = new EmbedBuilder()
+	.setColor(0x0099FF)
+	.setTitle('Welcome to ***Charlie Company 337***!')
+	.setURL('https://www.the100.io/groups/v2/3140')
+	.setAuthor({ name: 'CC337 Dev Team', iconURL: 'https://pwntastic-avatar-production.s3.amazonaws.com/uploads/group/header_image/3140/CC337-5.png', url: 'https://discord.js.org' })
+	.setDescription('CC337 New Member Welcome Message')
+	.setThumbnail('http://i.imgur.com/KslihqE.png')
+	.addFields(
+		{ name: 'Regular field title', value: 'We are a casual gaming group that has a ton of fun together. We\'re very active here in Discord, have games going every night and group events throughout the month.' },
+		{ name: '\u200B', value: '\u200B' },
+		{ name: 'Inline field title', value: '__**There are a few things you need to do to gain full access to the Discord:**__', inline: true },
+		{ name: 'Inline field title', value: '**1**) Join our group on the100.io. This is where we schedule our games. You can still LFG in Discord, but this is the core of our group. https://www.the100.io/g/3140', inline: true },
+        { name: 'Inline field title', value: '**2**) Be sure to set your nickname to let people know how to find you on your main platform (e.g. "Username#1234 (Bungie)" or "Username (Steam)").', inline: true },
+        { name: '\u200B', value: '\u200B' },
+        { name: 'Inline field title', value: 'To do this: \
+        - right click your name in Discord \
+        - select "Edit Server Profile" \
+        - change your nickname in the text box \
+        - click "Save Changes" at the bottom of the screen.', inline: true },
+        { name: 'Inline field title', value: 'See here for more info: https://support.discordapp.com/hc/en-us/articles/219070107-Server-Nickname', inline: true },
+        { name: 'Inline field title', value: 'MESSAGE', inline: true },
+
+        )
+	.setImage('http://i.imgur.com/KslihqE.png')
+	.setTimestamp()
+	.setFooter({ text: 'If you have any questions, please let a member of the leadership team know or post in ${bot.channels.cache.get(welcomeChannelID)} for help', iconURL: 'http://i.imgur.com/KslihqE.png' });
     // Send a DM to the new user explaining our rules.
-    //member.send('Welcome to ***Charlie Company 337***').catch(err => {
-    //    console.warn("Unable to DM this user.");
+    member.send(welcomeMessageEmbed).catch(err => {
+        console.warn('Unable to DM this user:' + err);
     //}
-     member.send(    
+    /* member.send(  
         {
         embed:
         {
@@ -135,10 +162,10 @@ __**There are a few things you need to do to gain full access to the Discord:**_
      **4**) Once you've done everything above, post in ${bot.channels.cache.get(welcomeChannelID)} to get promoted to Grunt and have full acess to our Discord.
 
 That's it! If you have any questions, please let a member of the leadership team know or post in ${bot.channels.cache.get(welcomeChannelID)} for help.`
-        }
+        } 
     }).catch(err => {
         console.warn("Unable to DM this user - " + err);
-    })
+    })*/
     // Add Newbie role to new member upon joining
     //guildMember.addRole(guildMember.guild.roles.find('name', 'Newbie'));
     //const role = bot.user.getRole(newbID);
