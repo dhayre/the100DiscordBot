@@ -233,7 +233,7 @@ bot.on('guildMemberUpdate', (oldMember,newMember) =>
 {
     const generalChannel = bot.channels.cache.get(bottestChannelID);
     const leadershipChannel = bot.channels.cache.get(leadershipChannelID);
-    const memberLogChannel = newMember.guild.channels.fetch(memberLogChannelID);
+    const memberLogChannel = bot.channels.cache.get(memberLogChannelID);
     const welcomeChannel = bot.channels.cache.get(welcomeChannelID);
     
     // If roles have been updated
@@ -276,7 +276,7 @@ bot.on('guildMemberUpdate', (oldMember,newMember) =>
 // to keep a log and notify bot admins.
 bot.on('disconnect', (msg) =>
 {
-    const botTestChannel = bot.channels.fetch(bottestChannelID);
+    const botTestChannel = bot.channels.cache.get(bottestChannelID);
 
     botTestChannel.send('Bee Bee Boop ... Bot Disconnected');
 });
