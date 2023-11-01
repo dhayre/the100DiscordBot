@@ -36,6 +36,7 @@ bot.on('ready', () =>
 
     console.log('Bot Online');
     bot.user.setActivity('Achieving Sentience...');
+    bot.user.setThumbnail('http://i.imgur.com/KslihqE.png');
     //bot.user.setGame('$help');
 
     // Tries to perform this function on the live server
@@ -91,7 +92,7 @@ Once you've completed this, post in the #welcome_new_members channel to be promo
     }
     catch (error)
     {
-        console.log('Non Live Server');
+        console.log('Non Live Server. Reason: ' + error);
     }
 });
 
@@ -110,27 +111,27 @@ bot.on('guildMemberAdd', (guildMember) =>
 	.setColor(0x0099FF)
 	.setTitle('Welcome to ***Charlie Company 337***!')
 	.setURL('https://www.the100.io/groups/v2/3140')
-	.setAuthor({ name: 'CC337 Dev Team', iconURL: 'https://pwntastic-avatar-production.s3.amazonaws.com/uploads/group/header_image/3140/CC337-5.png', url: 'https://discord.js.org' })
-	.setDescription('CC337 New Member Welcome Message')
+	.setAuthor({ name: 'CC337 Leadership Team', iconURL: 'https://pwntastic-avatar-production.s3.amazonaws.com/uploads/group/header_image/3140/CC337-5.png', url: 'https://www.the100.io/groups/v2/3140' })
 	.setThumbnail('http://i.imgur.com/KslihqE.png')
 	.addFields(
-		{ name: 'Regular field title', value: 'We are a casual gaming group that has a ton of fun together. We\'re very active here in Discord, have games going every night and group events throughout the month.' },
+		{ name: '\u200B', value: 'We are a casual gaming group that has a ton of fun together. We\'re very active here in Discord, have games going every night and group events throughout the month.' },
 		{ name: '\u200B', value: '\u200B' },
-		{ name: 'Inline field title', value: '__**There are a few things you need to do to gain full access to the Discord:**__', inline: false },
-		{ name: 'Inline field title', value: '**1**) Join our group on the100.io. This is where we schedule our games. You can still LFG in Discord, but this is the core of our group. https://www.the100.io/g/3140', inline: false },
-        { name: 'Inline field title', value: '**2**) Be sure to set your nickname to let people know how to find you on your main platform (e.g. "Username#1234 (Bungie)" or "Username (Steam)").', inline: false },
+		{ name: '\u200B', value: '__**There are a few things you need to do to gain full access to the Discord:**__' },
+		{ name: '\u200B', value: '**1**) Join our group on the100.io. This is where we schedule our games. You can still LFG in Discord, but this is the core of our group. https://www.the100.io/g/3140', inline: false },
         { name: '\u200B', value: '\u200B' },
-        { name: 'Inline field title', value: 'To do this: \
-        - right click your name in Discord \
-        - select "Edit Server Profile" \
-        - change your nickname in the text box \
-        - click "Save Changes" at the bottom of the screen.', inline: false },
-        { name: 'Inline field title', value: 'See here for more info: https://support.discordapp.com/hc/en-us/articles/219070107-Server-Nickname', inline: false },
-        { name: 'Inline field title', value: 'MESSAGE', inline: false },
+        { name: '\u200B', value: '**2**) Be sure to set your nickname to let people know how to find you on your main platform (e.g. "Username#1234 (Bungie)" or "Username (Steam)"). \
+        To do this: \u200B \
+        * right click your name in Discord \
+        * select "Edit Server Profile" \
+        * change your nickname in the text box \
+        * click "Save Changes" at the bottom of the screen. \
+        See here for more info: https://support.discordapp.com/hc/en-us/articles/219070107-Server-Nickname' },
+        { name: '\u200B', value: '**3**) Familiarize yourself with our ' + bot.channels.cache.get(rulesChannelID) },
+        { name: '\u200B', value: '**4**) Once you\'ve done everything above, post in ${bot.channels.cache.get(welcomeChannelID)} to get promoted to Grunt and have full acess to our Discord. ' },
 
         )
 	.setTimestamp()
-	.setFooter({ text: 'If you have any questions, please let a member of the leadership team know or post in ${bot.channels.cache.get(welcomeChannelID)} for help', iconURL: 'http://i.imgur.com/KslihqE.png' });
+	.setFooter({ text: 'If you have any questions, please let a member of the leadership team know or post in ' + bot.channels.cache.get(welcomeChannelID) + ' for help', iconURL: 'http://i.imgur.com/KslihqE.png' });
     // Send a DM to the new user explaining our rules.
     member.send({ embeds: [welcomeMessageEmbed] }).catch(err => {
         console.warn('Unable to DM this user:' + err);
