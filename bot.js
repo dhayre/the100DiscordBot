@@ -108,7 +108,7 @@ bot.on('guildMemberAdd', (guildMember) =>
     const member = guildMember;
     member.roles.add(newbID);
     // Send a DM to the new user explaining our rules.
-    const embed = new Discord.MessageEmbed().setTitle('Welcome to ***Charlie Company 337***').setDescription('***CC337 rules***');
+    const embed = new bot.MessageEmbed().setTitle('Welcome to ***Charlie Company 337***').setDescription('***CC337 rules***');
     member.send(embed);
     /* member.send(    
         {
