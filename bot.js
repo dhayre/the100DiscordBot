@@ -27,7 +27,7 @@ const bottestChannelID = '206052775061094401';
 const rulesChannelID = '523332842940268554';
 const generalChannelID = '193349994617634816'
 
-bot.on('ready', (msg) =>
+bot.on('ready', () =>
 {
     const welcomeChannel = bot.channels.cache.get(welcomeChannelID);
     const rulesChannel = bot.channels.cache.get(rulesChannelID);
@@ -57,7 +57,7 @@ bot.on('ready', (msg) =>
             const todaysDate = new Date();
 
             // Find member's join date
-            const joinDate = guildMember.joinedAt;
+            const joinDate = member.joinedAt;
 
             // Add three days to member's join date
             const threeDaysAfterJoinDate = joinDate.setDate(joinDate.getDate() + 3);
