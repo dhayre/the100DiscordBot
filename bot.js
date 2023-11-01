@@ -46,7 +46,7 @@ bot.on('ready', () =>
         //const guest = bot.guild.members.fetch();
         const newmembers = bot.guilds.cache.get(newbID);
         console.log('Newb ID:' + newbID);
-        console.log('Members:' + newmembers);
+        console.log('Members:' + newmembers.toString());
         //const newmembers = guild.members.cache.get;
         newmembers.forEach(member => {
             if (bot.role.id === newbID)
