@@ -45,7 +45,6 @@ bot.on('ready', () =>
         
         // CC337 Server
         bot.guild.roles.get(newbID).members.forEach((member) =>
-	    //bot.guilds.get('193349994617634816').roles.find('name', 'Newbie').members.forEach((member) =>
         {
 
             // Get today's date
@@ -63,7 +62,7 @@ bot.on('ready', () =>
             {
                 // Generate a unique, single use, 7 day invite for the member and send them a DM
                 welcomeChannel.createInvite({maxAge: 604800, maxUses: 1, unique: true})
-                .then(invite => member.send(guildMember, 
+                .then(invite => member.send( 
                 {
                     embed:
                     {
@@ -108,10 +107,10 @@ bot.on('guildMemberAdd', (guildMember) =>
     const member = guildMember;
     member.roles.add(newbID);
     // Send a DM to the new user explaining our rules.
-    member.send('Welcome to ***Charlie Company 337***').catch(err => {
-        console.warn("Unable to DM this user.");
+    //member.send('Welcome to ***Charlie Company 337***').catch(err => {
+    //    console.warn("Unable to DM this user.");
     });
-    /* member.send(    
+     member.send(    
         {
         embed:
         {
@@ -138,7 +137,8 @@ __**There are a few things you need to do to gain full access to the Discord:**_
 
 That's it! If you have any questions, please let a member of the leadership team know or post in ${bot.channels.cache.get(welcomeChannelID)} for help.`
         } 
-    }); */
+    }).catch(err => {
+        console.warn("Unable to DM this user.");
 
     // Add Newbie role to new member upon joining
     //guildMember.addRole(guildMember.guild.roles.find('name', 'Newbie'));
