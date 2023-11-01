@@ -231,23 +231,20 @@ bot.on('guildMemberRemove', (guildMember) =>
 // When any member changes their nickname, add it to the mod log
 bot.on('guildMemberUpdate', (oldMember,newMember) =>
 {
-    const generalChannel = bot.channels.cache.get(generalChannelID);
+    const generalChannel = bot.channels.cache.get(bottestChannelID);
     const leadershipChannel = bot.channels.cache.get(leadershipChannelID);
     const memberLogChannel = newMember.guild.channels.fetch(memberLogChannelID);
     const welcomeChannel = bot.channels.cache.get(welcomeChannelID);
     console.log('User updated: ' + oldMember + '-' + oldMember.roles.cache.get + newMember + '-' + newMember.role);
     
     // If roles have been updated
-    if (oldMember.roles.cache.some(role => role.name !== newMember.role)) {
-    //if(oldMember.role.equals(newMember.roles) === false) {
-
-        // If the new role added is grunt, send message to general channel
-        if (oldMember.roles.cache.some(role => role.name !== gruntID) && newMember.roles.cache.some(role => role.name === gruntID)) {
-            generalChannel.send(`Please welcome our newest grunt ${newMember.user}! Take a moment to introduce yourself in ${bot.channels.cache.get('227914910158290945')} and pick up some roles in ${newMember.guild.channels.find('name', 'role_requests')}. We're glad you joined us!`);
-        }
+    if (oldMember.roles.cache.has(newbID) && newMember.roles.cache.has(gruntID)) {
+    //if (oldMember.roles.cache.has(role => role.name !== newMember.role)) {
+        generalChannel.send(`Please welcome our newest grunt ${newMember.user}! Take a moment to introduce yourself in ${bot.channels.cache.get('227914910158290945')} and pick up some roles in ${newMember.guild.channels.find('name', 'role_requests')}. We're glad you joined us!`);
+    }
 
         // If the new role added is trooper, send a message to general channel
-        else if (oldMember.roles.cache.some(role => role.name !== troopID) === false && newMember.roles.cache.some(role => role.name === troopID)) {
+    if (oldMember.roles.cache.has(gruntID) && newMember.roles.cache.has(troopID)) {
             generalChannel.send(`Congrats to ${newMember.user} on making Trooper status! Thanks for playing with us! ${newMember.guild.emojis.find('409058931571163137')}`); // Dorito emoji 409058931571163137
         }
     }
