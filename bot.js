@@ -52,7 +52,7 @@ bot.on('ready', (rdy) =>
             // Get today's date
             const todaysDate = new Date(Date.now()).toLocaleString().split(',')[0];
             // Find member's join date
-            let person = guild.members.cache.get(member);
+            let person = rdy.members.fetch(member);
             console.log(person);
 
             const joinDate = person.joinedAt;
