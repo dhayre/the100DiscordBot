@@ -84,15 +84,15 @@ bot.on('ready', (rdy) =>
 	            .setFooter({ text: `If you have any questions, please let a member of the leadership team know or post in ${ bot.channels.cache.get(welcomeChannelID) } for help`, iconURL: 'http://i.imgur.com/KslihqE.png' });
      
 
-            if (todaysDate - joinDate < 259200000 && mbmr.roles.cache.has(newbID))
+            if (todaysDate - 259200000 > joinDate  && mbmr.roles.cache.has(newbID))
             {
-                console.log('Would kick ' + member.name)
+                console.log('Would kick ' + mbmr.name)
                 // Generate a unique, single use, 7 day invite for the member and send them a DM
                 welcomeChannel.createInvite({maxAge: 604800, maxUses: 1, unique: true})
                 .then(invite => mbmr.send({ embeds: [kickMessageEmbed] }))
                 .then(() =>
                 {
-                    member.kick('Did not complete basic membership requirements after three days');
+                    mbmr.kick('Did not complete basic membership requirements after three days');
                 });
           }
         });
