@@ -108,7 +108,7 @@ bot.on('guildMemberAdd', (guildMember) =>
     // Send a DM to the new user explaining our rules.
     //member.send('Welcome to ***Charlie Company 337***').catch(err => {
     //    console.warn("Unable to DM this user.");
-    });
+    //}
      member.send(    
         {
         embed:
@@ -138,7 +138,7 @@ That's it! If you have any questions, please let a member of the leadership team
         } 
     }).catch(err => {
         console.warn("Unable to DM this user.");
-
+    }
     // Add Newbie role to new member upon joining
     //guildMember.addRole(guildMember.guild.roles.find('name', 'Newbie'));
     //const role = bot.user.getRole(newbID);
