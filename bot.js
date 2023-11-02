@@ -214,7 +214,7 @@ bot.on('guildMemberUpdate', (oldMember,newMember) =>
             memberLogChannel.send(`${oldMember.displayName} has added the nickname ${newMember.user}`);
         }
         
-        if(newMember.rolescache.some(role => role.name === newbID)) {
+        if(newMember.roles.cache.some(role => role.name === newbID)) {
             if (oldMember.nickname) {
                 welcomeChannel.send(`Newbie ${oldMember.nickname} has changed their nickname to ${newMember.user}`);
             }
